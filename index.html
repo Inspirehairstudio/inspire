@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Inspire Hair Studio in Sherman, TX. Book with our barbers, browse our work, read reviews, find our location, and contact us."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=League+Spartan:wght@600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{
+      --card:#121216;
+      --muted:#a4a7ac;
+      --accent:#1f3e26;
+      --stroke:#2c5936;      /* ring color */
+    }
+
+    html { scroll-behavior:smooth; }
+
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:#fff;
+      background: linear-gradient(135deg,#14251a 0%,#0f1b15 45%,#000000 100%);
+    }
+
+    .title { font-family: "League Spartan", Inter, sans-serif; }
+
+    .grain{ position:relative; }
+    .grain::after{
+      content:""; position:absolute; inset:0; pointer-events:none; opacity:.06;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+      mix-blend-mode:soft-light;
+    }
+
+    a,button,input,textarea{ outline-offset:2px; }
+
+    .elfsight-container .eapps-instagram-feed,
+    .elfsight-container [class*="eapps-"] { border-radius: 0.75rem; overflow: hidden; }
+
+    
+      /* Safe area + hero helpers */ 
+    .safe-top { padding-top: env(safe-area-inset-top); }
+    @supports (height: 100svh) { .hero { height: 100svh; } }
+    
+    /* Make sure the image truly edge-to-edge (no 1px gaps on some devices) */
+    .hero img { display:block; }
+    /* Card */
+    .barber-card{
+      position:relative; isolation:isolate; background:var(--card);
+      border-radius:1rem; box-shadow:0 0 0 1px rgba(255,255,255,.10);
+      transform:translateY(0) scale(1);
+      transition:transform .26s ease, box-shadow .26s ease, filter .26s ease;
+      display:flex;
+      flex-direction:column;
+      grid-row: span var(--rows, 1);
+      overflow:hidden;
+    }
+    .barber-card::after{
+      content:""; position:absolute; inset:0; border-radius:inherit;
+      border:3px solid var(--stroke); opacity:0; transition:opacity .2s ease;
+      pointer-events:none; z-index:1;
+    }
+    .barber-card:hover{
+      transform:translateY(-3px) scale(1.035);
+      box-shadow:0 0 0 1px rgba(255,255,255,.08);
+      filter:
+        drop-shadow(0 14px 26px rgba(0,153,35,.42))
+        drop-shadow(0 6px 14px rgba(0,153,35,.30))
+        drop-shadow(0 3px 6px rgba(0,0,0,.40));
+    }
+    .barber-card:hover::after{ opacity:1; }
+
+    
+    /* Mobile-safe full-viewport height for the hero */
+    .hero { height: 100vh; }            /* fallback */
+    @supports (height: 100svh) {
+      .hero { height: 100svh; }         /* iOS/Android safe viewport */
+    }
+    
+    /* Accordion */
+    .svc-toggle{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:.75rem; width:100%;
+      padding:.5rem 0;
+      background:none; border:0; color:inherit; text-align:left;
+      cursor:pointer;
+    }
+    .chev{ display:block; transition:transform .2s ease; }
+    .svc-toggle[aria-expanded="true"] .chev{ transform:rotate(180deg); }
+
+    /* Panels default closed; open when parent card has .is-open */
+    .svc-panel{ display:none; }
+    .barber-card.is-open .svc-panel{ display:block; }
+
+    @media (prefers-reduced-motion:reduce){
+      .barber-card, .barber-card::after, .chev { transition:none; }
+    }
+
+    /* Masonry rows: tiny fixed row height; JS sets --rows */
+    #teamGrid{ grid-auto-rows: 4px; }
+
+    #instagram {
+      background: #0e1713;
+      padding: 4rem 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Sticky mobile Book CTA -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+    <a href="#team" class="block text-center py-3 bg-[var(--accent)] text-[#fcf8e6] font-semibold">Book Now</a>
+  </div>
+
+  <!-- ===================== HEADER (new) ===================== -->
+  <!-- HEADER (centered desktop nav; no left logo) -->
+<header class="absolute inset-x-0 top-0 z-30">
+  <div class="mx-auto max-w-7xl px-4">
+    <div class="h-16 relative flex items-center">
+      <!-- Desktop nav centered -->
+      <nav class="hidden md:flex absolute inset-x-0 justify-center items-center gap-8 text-sm text-white/80">
+        <a href="#team" class="hover:text-white">our team</a>
+        <a href="#instagram" class="hover:text-white">gallery</a>
+        <a href="#reviews" class="hover:text-white">reviews</a>
+        <a href="#location" class="hover:text-white">location</a>
+        <a href="#contact" class="hover:text-white">contact</a>
+        <a href="#team" class="inline-flex items-center rounded-xl bg-[var(--accent)] px-3 py-2 text-[#fcf8e6] font-semibold">book now</a>
+      </nav>
+
+      <!-- Mobile hamburger (right) -->
+      <button id="menuBtn"
+              class="md:hidden ml-auto inline-flex items-center justify-center h-10 w-10 rounded-lg ring-1 ring-white/10 bg-black/30 backdrop-blur"
+              aria-label="Open menu" aria-expanded="false">
+        <svg id="menuIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/90">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg id="closeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-white/90">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden">
+    <div class="mx-auto max-w-7xl px-4 pb-4">
+      <div class="rounded-2xl bg-[var(--card)]/95 ring-1 ring-white/10 backdrop-blur p-4">
+        <nav class="grid gap-2 text-base">
+          <a href="#team" class="px-3 py-2 rounded-lg hover:bg-white/5">our team</a>
+          <a href="#instagram" class="px-3 py-2 rounded-lg hover:bg-white/5">gallery</a>
+          <a href="#reviews" class="px-3 py-2 rounded-lg hover:bg-white/5">reviews</a>
+          <a href="#location" class="px-3 py-2 rounded-lg hover:bg-white/5">location</a>
+          <a href="#contact" class="px-3 py-2 rounded-lg hover:bg-white/5">contact</a>
+          <a href="#team" class="mt-2 inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-4 py-3 text-[#fcf8e6] font-semibold">book now</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <!-- ======================================================= -->
+
+<section id="top" class="relative overflow-hidden grain">
+  <img
+    src="images/inspirehairstudiomainlogo.png"
+    alt="Three barbers against a minimalist wall at Inspire Hair Studio"
+    class="w-full h-auto block object-center"
+  />
+  <!-- optional dark overlay: remove if not needed -->
+  <div class="pointer-events-none absolute inset-0 bg-black/20 md:bg-transparent"></div>
+</section>
+
+
+
+  <!-- OUR TEAM -->
+  <section id="team" class="mx-auto max-w-7xl px-4 py-16 scroll-mt-24">
+    <header class="mb-8">
+      <h2 class="title text-3xl md:text-4xl">OUR TEAM</h2>
+      <p class="text-[var(--muted)] mt-2">Choose your barber. Each has their own services &amp; pricing.</p>
+    </header>
+
+    <div id="teamGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+      <!-- Fernando -->
+      <article class="barber-card rounded-2xl">
+        <img src="images/inspirehairstuidiofernando.png" alt="Fernando — Inspire Hair Studio" class="h-56 w-full object-cover" />
+        <div class="p-5">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-semibold text-lg">Fernando</h3>
+              <p class="text-sm text-[var(--muted)]">Owner</p>
+            </div>
+            <a data-book="fernando" class="shrink-0 inline-flex items-center rounded-xl bg-[var(--accent)] px-3 py-2 text-[#fcf8e6] font-semibold">Book</a>
+          </div>
+
+          <div class="svc mt-4">
+            <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="p-fernando">
+              <span class="flex items-center gap-2 font-semibold">
+                Services &amp; Pricing
+                <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div id="p-fernando" class="svc-panel">
+              <ul class="mt-2 space-y-3 text-sm">
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Haircut</div>
+                    <div class="text-xs text-[var(--muted)]">1 hr</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$90</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Haircut &amp; Beard</div>
+                    <div class="text-xs text-[var(--muted)]">1 hr 30 mins</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$110</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Issac -->
+      <article class="barber-card rounded-2xl">
+        <img src="images/inspirehairstuidioissac.png" alt="Issac — Inspire Hair Studio" class="h-56 w-full object-cover" />
+        <div class="p-5">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-semibold text-lg">Issac</h3>
+              <p class="text-sm text-[var(--muted)]">Artist</p>
+            </div>
+            <a data-book="issac" class="shrink-0 inline-flex items-center rounded-xl bg-[var(--accent)] px-3 py-2 text-[#fcf8e6] font-semibold">Book</a>
+          </div>
+
+          <div class="svc mt-4">
+            <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="p-issac">
+              <span class="flex items-center gap-2 font-semibold">
+                Services &amp; Pricing
+                <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div id="p-issac" class="svc-panel">
+              <ul class="mt-2 space-y-3 text-sm">
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Detailed Cut</div>
+                    <div class="text-xs text-[var(--muted)]">1 hr</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$45</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Haircut &amp; Beard</div>
+                    <div class="text-xs text-[var(--muted)]">1 hr</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$55</span>
+                </li>
+                <!-- New items -->
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Kids Cut</div>
+                    <div class="text-xs text-[var(--muted)]">1 hr</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$35</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Edge Up</div>
+                    <div class="text-xs text-[var(--muted)]">30 mins</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$15</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Jovani -->
+      <article class="barber-card rounded-2xl">
+        <img src="images/inspirehairstuidiojovani.png" alt="Jovani — Inspire Hair Studio" class="h-56 w-full object-cover" />
+        <div class="p-5">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-semibold text-lg">Jovani</h3>
+              <p class="text-sm text-[var(--muted)]">Artist</p>
+            </div>
+            <a data-book="jovani" class="shrink-0 inline-flex items-center rounded-xl bg-[var(--accent)] px-3 py-2 text-[#fcf8e6] font-semibold">Book</a>
+          </div>
+
+          <div class="svc mt-4">
+            <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="p-jovani">
+              <span class="flex items-center gap-2 font-semibold">
+                Services &amp; Pricing
+                <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div id="p-jovani" class="svc-panel">
+              <ul class="mt-2 space-y-3 text-sm">
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Basic Haircut</div>
+                    <div class="text-xs text-[var(--muted)]">30 mins</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$25</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Haircut - Fade/Desvanecido</div>
+                    <div class="text-xs text-[var(--muted)]">55 mins</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$30</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Kids Haircut</div>
+                    <div class="text-xs text-[var(--muted)]">1 hr</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$25</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Edge Up</div>
+                    <div class="text-xs text-[var(--muted)]">45 mins</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$15</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Junior -->
+      <article class="barber-card rounded-2xl">
+        <img src="images/juniortest2.png" alt="Junior — Inspire Hair Studio" class="h-56 w-full object-cover" />
+        <div class="p-5">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-semibold text-lg">Junior</h3>
+              <p class="text-sm text-[var(--muted)]">Artist</p>
+            </div>
+            <a data-book="junior" class="shrink-0 inline-flex items-center rounded-xl bg-[var(--accent)] px-3 py-2 text-[#fcf8e6] font-semibold">Book</a>
+          </div>
+
+          <div class="svc mt-4">
+            <button class="svc-toggle" type="button" aria-expanded="false" aria-controls="p-junior">
+              <span class="flex items-center gap-2 font-semibold">
+                Services &amp; Pricing
+                <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+            <div id="p-junior" class="svc-panel">
+              <ul class="mt-2 space-y-3 text-sm">
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Haircut</div>
+                    <div class="text-xs text-[var(--muted)]">1 hr</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$40</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Haircut with Beard</div>
+                    <div class="text-xs text-[var(--muted)]">1 hr 20 mins</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$50</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Highlights</div>
+                    <div class="text-xs text-[var(--muted)]">2 hrs</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$160</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Low Lights</div>
+                    <div class="text-xs text-[var(--muted)]">2 hrs</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$140</span>
+                </li>
+                <li class="flex items-start justify-between">
+                  <div>
+                    <div class="font-medium">Perms</div>
+                    <div class="text-xs text-[var(--muted)]">2 hrs</div>
+                  </div>
+                  <span class="mt-0.5 text-white/90">$120</span>
+                </li>
+              </ul>
+              <div class="mt-3 text-xs text-[var(--muted)]">
+                <span class="font-medium text-white/80">Policies:</span>
+                Late arrivals incur a $10 fee; after-hours appointments are billed at double rate.
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM / GALLERY -->
+  <section id="instagram" class="scroll-mt-24 bg-[#0e1713] py-16">
+    <div class="mx-auto max-w-7xl px-4">
+      <header class="mb-8">
+        <h2 class="title text-3xl md:text-4xl">GALLERY</h2>
+        <p class="text-[var(--muted)] mt-2">From our Instagram.</p>
+      </header>
+
+      <div class="elfsight-container">
+        <div class="elfsight-app-86bf5540-d345-4605-bf3e-eafa0d1ca237" data-elfsight-app-lazy></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="mx-auto max-w-7xl px-4 py-16 scroll-mt-24">
+    <header class="mb-8">
+      <h2 class="title text-3xl md:text-4xl">REVIEWS</h2>
+      <p class="text-[var(--muted)] mt-2">What clients are saying.</p>
+    </header>
+
+    <div class="elfsight-app-1f9376d2-cd21-4860-b3c5-bc9e1ad65ac6" data-elfsight-app-lazy></div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" class="mx-auto max-w-7xl px-4 py-16 scroll-mt-24">
+    <header class="mb-8">
+      <h2 class="title text-3xl md:text-4xl">LOCATION</h2>
+      <p class="text-[var(--muted)] mt-2">201 Sunset Blvd, Sherman, TX 75092 — Tue–Sat</p>
+    </header>
+    <div class="rounded-2xl overflow-hidden ring-1 ring-white/10">
+      <iframe src="https://www.google.com/maps?q=201%20Sunset%20Blvd%20Sherman%20TX%2075092&output=embed" class="w-full h-[380px]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="mx-auto max-w-7xl px-4 py-16 scroll-mt-24">
+    <header class="mb-8">
+      <h2 class="title text-3xl md:text-4xl">CONTACT US</h2>
+      <p class="text-[var(--muted)] mt-2">General questions? Send a note—we’ll get back quickly.</p>
+    </header>
+    <form class="grid md:grid-cols-2 gap-4 max-w-3xl" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <input name="name" required placeholder="Your name" class="rounded-xl bg-[var(--card)] ring-1 ring-white/10 px-4 py-3" />
+      <input type="email" name="email" required placeholder="Email" class="rounded-xl bg-[var(--card)] ring-1 ring-white/10 px-4 py-3" />
+      <input name="phone" placeholder="Phone (optional)" class="rounded-xl bg-[var(--card)] ring-1 ring-white/10 px-4 py-3 md:col-span-2" />
+      <textarea name="message" required placeholder="How can we help?" rows="5" class="rounded-xl bg-[var(--card)] ring-1 ring-white/10 px-4 py-3 md:col-span-2"></textarea>
+      <button class="md:col-span-2 inline-flex items-center justify-center rounded-xl bg-[var(--accent)] px-5 py-3 text-[#fcf8e6] font-semibold">Send</button>
+    </form>
+    <p class="text-sm text-[var(--muted)] mt-4">Prefer email? <a class="text-[var(--accent)] hover:underline" href="mailto:you@yourdomain">you@yourdomain</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-16 border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-[var(--muted)]">&copy; <span id="y"></span> Inspire Hair Studio. All rights reserved.</p>
+      <div class="flex items-center gap-4 text-sm text-[var(--muted)]">
+        <a href="https://instagram.com/YOUR_HANDLE" aria-label="Instagram">Instagram</a>
+        <a href="https://facebook.com/YOUR_PAGE" aria-label="Facebook">Facebook</a>
+        <a href="tel:+1YOURPHONE" aria-label="Call">Call</a>
+        <a href="mailto:you@yourdomain" aria-label="Email">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // helper: carousel scroll
+    function scrollByCard(id, dir){
+      const el = document.getElementById(id);
+      el && el.scrollBy({ left: dir * el.clientWidth * 0.9, behavior: 'smooth' });
+    }
+
+    // auto-update footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Book buttons
+    const BOOK = {
+      fernando: 'https://getsquire.com/booking/book/fernandoughfades-sherman/barber/fernando-jimenez-1/services?utm_source=site&utm_medium=book_button&utm_campaign=fernando',
+      issac:    'https://getsquire.com/booking/book/isaac-blends-hutchins/barber/isaac-castillo-1/services?utm_source=site&utm_medium=book_button&utm_campaign=issac',
+      jovani:   'https://headscapestudios.square.site/?utm_source=site&utm_medium=book_button&utm_campaign=jovani',
+      junior:   'https://book.squareup.com/appointments/fwywz2fah3c0rm/location/L5GGFA5P9058F/services?utm_source=site&utm_medium=book_button&utm_campaign=junior'
+    };
+    document.querySelectorAll('[data-book]').forEach(btn => {
+      const id = btn.dataset.book;
+      btn.href = BOOK[id]; btn.target = '_blank'; btn.rel = 'noopener';
+    });
+
+    // ===== Single-open accordion (services & pricing) =====
+    const cardsAccordion = [...document.querySelectorAll('.barber-card')];
+    cardsAccordion.forEach(c => c.querySelector('.svc-toggle')?.setAttribute('aria-expanded', 'false'));
+
+    function closeAll(){
+      cardsAccordion.forEach(c => {
+        c.classList.remove('is-open');
+        c.querySelector('.svc-toggle')?.setAttribute('aria-expanded','false');
+      });
+    }
+
+    cardsAccordion.forEach(card => {
+      const btn = card.querySelector('.svc-toggle');
+      btn.addEventListener('click', () => {
+        const wasOpen = card.classList.contains('is-open');
+        closeAll();
+        if (!wasOpen){
+          card.classList.add('is-open');
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+  </script>
+
+  <!-- Mobile menu toggle + body lock -->
+  <script>
+    (function () {
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+      const openIcon  = document.getElementById('menuIcon');
+      const closeIcon = document.getElementById('closeIcon');
+
+      function lockBody(lock) {
+        if (lock) {
+          document.body.style.overflow = 'hidden';
+          document.body.style.touchAction = 'none';
+        } else {
+          document.body.style.overflow = '';
+          document.body.style.touchAction = '';
+        }
+      }
+
+      btn?.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        const next = !isOpen;
+        btn.setAttribute('aria-expanded', String(next));
+        menu.classList.toggle('hidden', !next);
+        openIcon.classList.toggle('hidden', next);
+        closeIcon.classList.toggle('hidden', !next);
+        lockBody(next);
+      });
+
+      // Close on link click (better UX)
+      document.querySelectorAll('#mobileMenu a').forEach(a => {
+        a.addEventListener('click', () => {
+          btn.setAttribute('aria-expanded', 'false');
+          menu.classList.add('hidden');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          lockBody(false);
+        });
+      });
+    })();
+  </script>
+
+  <!-- Load Elfsight AFTER both widget containers exist (no async) -->
+  <script src="https://elfsightcdn.com/platform.js"></script>
+
+  <!-- Hide Elfsight branding (best-effort) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      function hideBrand(selector){
+        var el = document.querySelector(selector);
+        if (el) el.style.display = 'none';
+      }
+      function sweep(){
+        hideBrand('a[href*="elfsight.com/google-reviews-widget"]');
+        hideBrand('a[href*="elfsight.com/instagram-feed-instashow"]');
+      }
+      sweep();
+      new MutationObserver(sweep).observe(document.body, { childList: true, subtree: true });
+      setInterval(sweep, 1000);
+    });
+  </script>
+
+  <!-- Masonry sizing (must match #teamGrid { grid-auto-rows: 4px }) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('teamGrid');
+      if (!grid) return;
+
+      const cs  = getComputedStyle(grid);
+      const ROW = parseFloat(cs.getPropertyValue('grid-auto-rows')) || 4;
+      const GAP = parseFloat(cs.getPropertyValue('row-gap'))        || 0;
+
+      const items = [...grid.querySelectorAll('.barber-card')];
+
+      function setSpan(el){
+        const h = el.getBoundingClientRect().height;
+        const rows = Math.ceil((h + GAP) / (ROW + GAP));
+        el.style.setProperty('--rows', rows);
+      }
+
+      const ro = new ResizeObserver(entries => {
+        for (const e of entries) setSpan(e.target);
+      });
+
+      items.forEach(el => {
+        el.querySelectorAll('img').forEach(img => {
+          if (!img.complete) img.addEventListener('load', () => setSpan(el), { once:true });
+        });
+        setSpan(el);
+        ro.observe(el);
+      });
+
+      window.addEventListener('resize', () => items.forEach(setSpan));
+    });
+  </script>
+</body>
+</html>
