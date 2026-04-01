@@ -6,7 +6,7 @@
   <title>Gallery | Inspire Hair Studio</title>
   <meta
     name="description"
-    content="Browse recent cuts, tapers, beard work, and modern styles from Inspire Hair Studio in Sherman, TX."
+    content="Browse recent cuts, textured styles, tapers, beard work, and modern barbering from Inspire Hair Studio in Sherman, TX."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,7 +38,7 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <div class="social-links social-links-dark">
+      <div class="social-links-dark">
         <a href="https://www.instagram.com/inspirehairstudio__/" target="_blank" rel="noopener noreferrer">IG</a>
         <a href="https://www.facebook.com/inspirehairstudios" target="_blank" rel="noopener noreferrer">FB</a>
       </div>
@@ -51,7 +51,7 @@
         <p class="section-label">Gallery</p>
         <h1 class="title">Recent work from the studio</h1>
         <p class="gallery-intro">
-          A closer look at recent cuts, texture, tapers, beard work, and refined modern styles.
+          A closer look at textured cuts, tapers, beard work, and refined modern styles from recent appointments.
         </p>
       </div>
     </section>
@@ -65,10 +65,10 @@
     </section>
 
     <section class="section gallery-cta-section">
-      <p class="section-label">Ready for your next cut?</p>
-      <h2 class="title">Choose your barber and book online.</h2>
+      <p class="section-label">See something you like?</p>
+      <h2 class="title">Book with your barber online.</h2>
       <p class="gallery-intro">
-        Browse the work, find the style you like, and lock in your appointment.
+        Browse the work, find the style that fits you, and schedule your next appointment.
       </p>
 
       <div class="hero-buttons">
@@ -81,6 +81,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>© 2026 Inspire Hair Studio. All rights reserved.</p>
+
       <div class="footer-links">
         <a href="ourteam.html">Our Team</a>
         <a href="gallery.html">Gallery</a>
@@ -94,28 +95,27 @@
     document.addEventListener("DOMContentLoaded", function () {
       function removeElfsightBranding() {
         const selectors = [
-          'a[href*="elfsight.com/instagram-feed-instashow"]',
           'a[href*="elfsight.com"]',
-          '.eapps-instagram-feed-posts-slider-credits',
-          '.eapps-widget-toolbar',
           '[class*="es-widget-branding"]',
-          '[class*="eapps-instagram-feed-link"]'
+          '[class*="eapps-widget-toolbar"]',
+          '[class*="eapps-instagram-feed-posts-slider-credits"]',
+          '[class*="eapps-link"]'
         ];
 
         selectors.forEach(selector => {
           document.querySelectorAll(selector).forEach(el => {
-            el.style.display = 'none';
-            el.style.visibility = 'hidden';
-            el.style.opacity = '0';
-            el.style.height = '0';
-            el.style.overflow = 'hidden';
+            el.style.display = "none";
+            el.style.visibility = "hidden";
+            el.style.opacity = "0";
+            el.style.height = "0";
+            el.style.overflow = "hidden";
           });
         });
       }
 
       removeElfsightBranding();
 
-      const observer = new MutationObserver(function () {
+      const observer = new MutationObserver(() => {
         removeElfsightBranding();
       });
 
