@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Inspire Hair Studio</title>
+  <meta
+    name="description"
+    content="Browse recent cuts, tapers, beard work, and modern styles from Inspire Hair Studio in Sherman, TX."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="gallery-page">
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index2.html" class="logo-link">
+        <img
+          src="images/inspirehairstudioslogo-dark.png"
+          alt="Inspire Hair Studio logo"
+          class="logo logo-dark"
+        />
+      </a>
+
+      <nav class="site-nav">
+        <a href="ourteam.html">Our Team</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="index2.html#location">Location</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="social-links social-links-dark">
+        <a href="https://www.instagram.com/inspirehairstudio__/" target="_blank" rel="noopener noreferrer">IG</a>
+        <a href="https://www.facebook.com/inspirehairstudios" target="_blank" rel="noopener noreferrer">FB</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="gallery-hero">
+      <div class="gallery-hero-inner">
+        <p class="section-label">Gallery</p>
+        <h1 class="title">Recent work from the studio</h1>
+        <p class="gallery-intro">
+          A closer look at recent cuts, texture, tapers, beard work, and refined modern styles.
+        </p>
+      </div>
+    </section>
+
+    <section class="section gallery-widget-section">
+      <div class="gallery-widget-shell">
+        <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <div class="elfsight-app-7b93feba-12bb-42af-88b8-a8685f3de0eb" data-elfsight-app-lazy></div>
+      </div>
+    </section>
+
+    <section class="section gallery-cta-section">
+      <p class="section-label">Ready for your next cut?</p>
+      <h2 class="title">Choose your barber and book online.</h2>
+      <p class="gallery-intro">
+        Browse the work, find the style you like, and lock in your appointment.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="ourteam.html" class="btn btn-solid"><span>Book Now</span></a>
+        <a href="https://www.instagram.com/inspirehairstudio__/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-dark"><span>Visit Instagram</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2026 Inspire Hair Studio. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="ourteam.html">Our Team</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function removeElfsightBranding() {
+        const selectors = [
+          'a[href*="elfsight.com/instagram-feed-instashow"]',
+          'a[href*="elfsight.com"]',
+          '.eapps-instagram-feed-posts-slider-credits',
+          '.eapps-widget-toolbar',
+          '[class*="es-widget-branding"]',
+          '[class*="eapps-instagram-feed-link"]'
+        ];
+
+        selectors.forEach(selector => {
+          document.querySelectorAll(selector).forEach(el => {
+            el.style.display = 'none';
+            el.style.visibility = 'hidden';
+            el.style.opacity = '0';
+            el.style.height = '0';
+            el.style.overflow = 'hidden';
+          });
+        });
+      }
+
+      removeElfsightBranding();
+
+      const observer = new MutationObserver(function () {
+        removeElfsightBranding();
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true });
+      setInterval(removeElfsightBranding, 1000);
+    });
+  </script>
+</body>
+</html>
