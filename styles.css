@@ -500,14 +500,14 @@ iframe{
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
   gap:30px;
-  align-items:stretch; /* 👈 makes both sides equal height */
+  align-items:stretch;
 }
 
 .location-info{
   background:#fff;
   border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:28px;
+  padding:30px;
   box-shadow:var(--shadow);
 
   height:100%;
@@ -519,11 +519,39 @@ iframe{
 .location-top{
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:26px; 
+}
+
+.location-item{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+/* label */
+.location-label{
+  margin:0;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.location-value{
+  margin:0;
+  font-size:1.05rem;
+  color:#111;
+  line-height:1.5;
+}
+
+.location-value a{
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,0,0,0.2);
 }
 
 .location-bottom{
-  margin-top:20px;
+  margin-top:24px;
 }
 
 .location-info p{
@@ -544,7 +572,9 @@ iframe{
   border-bottom:1px solid currentColor;
 }
 
-/* MAP */
+/* =========================
+   MAP
+========================= */
 .map-wrap{
   overflow:hidden;
   border-radius:var(--radius);
@@ -552,14 +582,14 @@ iframe{
   box-shadow:var(--shadow);
   background:#ddd;
 
-  height:100%; /* 👈 match left side */
+  height:100%;
 }
 
 .map-wrap iframe{
   display:block;
   width:100%;
-  height:100%; /* 👈 fill container */
-  min-height:360px; /* 👈 keeps it clean on smaller screens */
+  height:100%;
+  min-height:360px;
 }
 
 /* =========================
