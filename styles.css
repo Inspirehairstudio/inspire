@@ -533,6 +533,8 @@ iframe{
 ========================= */
 .cta-section{
   text-align:center;
+  padding-top:72px;
+  padding-bottom:72px;
 }
 
 .cta-section h2{
@@ -543,6 +545,60 @@ iframe{
   max-width:620px;
   margin:0 auto 26px;
   color:var(--muted);
+}
+
+/* =========================
+   CTA BAND
+========================= */
+.cta-band{
+  background:#111;
+  color:#fff;
+  border-top:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  max-width:none;
+  padding-left:max(28px, calc((100vw - var(--container)) / 2 + 28px));
+  padding-right:max(28px, calc((100vw - var(--container)) / 2 + 28px));
+  text-align:center;
+}
+
+.cta-band .section-label{
+  color:rgba(255,255,255,0.68);
+}
+
+.cta-band h2{
+  color:#fff;
+  max-width:900px;
+  margin:0 auto 14px;
+}
+
+.cta-band p{
+  max-width:620px;
+  margin:0 auto 28px;
+  color:rgba(255,255,255,0.78);
+}
+
+.cta-band .hero-buttons{
+  justify-content:center;
+}
+
+.cta-band .btn-solid{
+  background:#fff;
+  color:#111;
+  border:1px solid #fff;
+}
+
+.cta-band .btn-outline{
+  background:rgba(255,255,255,0.04);
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,0.35);
+}
+
+.cta-band .btn-outline::before{
+  background:#fff;
+}
+
+.cta-band .btn-outline:hover{
+  color:#111;
 }
 
 /* =========================
@@ -940,6 +996,15 @@ iframe{
 
   .cards-grid{
     grid-template-columns:1fr;
+  }
+
+  .cards-grid + .center-cta{
+  margin-top:28px;
+  }
+
+  .section + .cta-band{
+  margin-top:0;
+  
   }
 
   .footer-inner{
