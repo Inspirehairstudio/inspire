@@ -62,23 +62,7 @@ iframe{
 .section{
   max-width:var(--container);
   margin:0 auto;
-  padding-left:20px;
-  padding-right:20px;
-}
-
-.section-lg{
-  padding-top:96px;
-  padding-bottom:96px;
-}
-
-.section-md{
-  padding-top:72px;
-  padding-bottom:72px;
-}
-
-.section-sm{
-  padding-top:56px;
-  padding-bottom:56px;
+  padding:96px 28px;
 }
 
 .alt-section{
