@@ -497,7 +497,10 @@ iframe{
    LOCATION
 ========================= */
 .location-grid{
-  align-items:start;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:30px;
+  align-items:stretch; /* 👈 makes both sides equal height */
 }
 
 .location-info{
@@ -506,6 +509,10 @@ iframe{
   border-radius:var(--radius);
   padding:24px;
   box-shadow:var(--shadow);
+
+  height:100%;
+  display:flex;
+  flex-direction:column;
 }
 
 .location-info p{
@@ -526,17 +533,22 @@ iframe{
   border-bottom:1px solid currentColor;
 }
 
+/* MAP */
 .map-wrap{
   overflow:hidden;
   border-radius:var(--radius);
   border:1px solid var(--line);
   box-shadow:var(--shadow);
   background:#ddd;
+
+  height:100%; /* 👈 match left side */
 }
 
 .map-wrap iframe{
   display:block;
   width:100%;
+  height:100%; /* 👈 fill container */
+  min-height:360px; /* 👈 keeps it clean on smaller screens */
 }
 
 /* =========================
