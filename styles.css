@@ -504,12 +504,16 @@ iframe{
   background:#fff;
   border:1px solid var(--line);
   border-radius:var(--radius);
-  padding:30px;
+  padding:24px;
   box-shadow:var(--shadow);
 }
 
 .location-info p{
-  margin-bottom:18px;
+  margin:0 0 14px;
+}
+
+.location-info p:last-child{
+  margin-bottom:0;
 }
 
 .location-info strong{
