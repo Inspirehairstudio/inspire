@@ -157,8 +157,7 @@ iframe{
   gap:32px;
 }
 
-.nav-center a,
-.social-links a{
+.nav-center a{
   text-decoration:none;
   color:rgba(255,255,255,0.96);
   font-size:14px;
@@ -168,16 +167,60 @@ iframe{
   transition:opacity .22s ease, transform .22s ease;
 }
 
-.nav-center a:hover,
-.social-links a:hover{
+.nav-center a:hover{
   opacity:0.78;
   transform:translateY(-1px);
 }
 
-.social-links{
+/* =========================
+   SOCIAL ICONS
+========================= */
+.social-links,
+.social-links-dark{
   display:flex;
   align-items:center;
   gap:18px;
+}
+
+.social-links a,
+.social-links-dark a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  text-decoration:none;
+  transition:all .25s ease;
+}
+
+.social-links i,
+.social-links-dark i{
+  font-size:16px;
+}
+
+/* homepage / hero nav */
+.nav .social-links a{
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+}
+
+.nav .social-links a:hover{
+  background:#fff;
+  color:#111;
+  transform:translateY(-2px);
+}
+
+/* inner pages */
+.social-links-dark a{
+  background:rgba(0,0,0,0.04);
+  color:#111;
+}
+
+.social-links-dark a:hover{
+  background:#111;
+  color:#fff;
+  transform:translateY(-2px);
 }
 
 /* =========================
@@ -519,8 +562,7 @@ iframe{
   gap:30px;
 }
 
-.site-nav a,
-.social-links-dark a{
+.site-nav a{
   text-decoration:none;
   color:#111;
   font-size:14px;
@@ -529,8 +571,7 @@ iframe{
   transition:opacity .22s ease, transform .22s ease;
 }
 
-.site-nav a:hover,
-.social-links-dark a:hover{
+.site-nav a:hover{
   opacity:0.65;
   transform:translateY(-1px);
 }
@@ -543,16 +584,9 @@ iframe{
   height:48px;
 }
 
-.social-links-dark{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
 /* =========================
    GALLERY PAGE
 ========================= */
-
 .gallery-page{
   background:#fff;
 }
@@ -684,8 +718,7 @@ iframe{
     gap:18px;
   }
 
-  .nav-center a,
-  .social-links a{
+  .nav-center a{
     font-size:13px;
   }
 
