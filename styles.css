@@ -58,10 +58,27 @@ iframe{
 /* =========================
    GLOBAL LAYOUT
 ========================= */
+
 .section{
   max-width:var(--container);
   margin:0 auto;
-  padding:96px 28px;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.section-lg{
+  padding-top:96px;
+  padding-bottom:96px;
+}
+
+.section-md{
+  padding-top:72px;
+  padding-bottom:72px;
+}
+
+.section-sm{
+  padding-top:56px;
+  padding-bottom:56px;
 }
 
 .alt-section{
@@ -559,6 +576,7 @@ iframe{
   padding-left:max(28px, calc((100vw - var(--container)) / 2 + 28px));
   padding-right:max(28px, calc((100vw - var(--container)) / 2 + 28px));
   text-align:center;
+  position:relative;
 }
 
 .cta-band .section-label{
@@ -599,6 +617,21 @@ iframe{
 
 .cta-band .btn-outline:hover{
   color:#111;
+}
+
+.cta-band .btn-solid:hover{
+  box-shadow:0 0 0 4px rgba(255,255,255,0.08);
+}
+
+.cta-band::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:120px;
+  height:1px;
+  background:rgba(255,255,255,0.2);
 }
 
 /* =========================
@@ -983,10 +1016,6 @@ iframe{
 
   .hero-image{
     object-position:center 28%;
-  }
-
-  .section{
-    padding:72px 20px;
   }
 
   .alt-section{
