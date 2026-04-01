@@ -105,6 +105,16 @@ iframe{
   color:var(--muted);
 }
 
+.split-layout{
+  align-items:center;
+}
+
+.split-image img{
+  width:100%;
+  border-radius:var(--radius);
+  display:block;
+}
+
 .content-grid{
   display:grid;
   gap:30px;
