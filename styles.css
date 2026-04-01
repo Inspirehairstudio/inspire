@@ -179,23 +179,32 @@ a{
 }
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:56px;
-  padding:16px 30px;
-  background:var(--white);
-  color:#111;
-  border-radius:16px;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 14px 32px rgba(0,0,0,0.20);
-  transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:white;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.35s ease;
+  z-index:0;
+}
+
+.btn span{
+  position:relative;
+  z-index:1;
+}
+
+.btn:hover::before{
+  transform:scaleX(1);
 }
 
 .btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.24);
+  color:black;
 }
 
 .section{
