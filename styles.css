@@ -106,13 +106,17 @@ iframe{
 }
 
 .split-layout{
-  align-items:center;
+  align-items:center; /* already good */
+}
+
+.split-image{
+  max-width:420px;
 }
 
 .split-image img{
   width:100%;
+  height:auto;
   border-radius:var(--radius);
-  display:block;
 }
 
 .content-grid{
