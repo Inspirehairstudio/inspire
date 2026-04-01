@@ -888,6 +888,13 @@ iframe{
     flex-wrap:wrap;
     gap:14px 18px;
   }
+
+  .split-section .split-layout{
+    grid-template-columns:1fr;
+    gap:28px;
+    padding:24px;
+  }
+  
 }
 
 @media (max-width: 768px){
