@@ -172,6 +172,10 @@ iframe{
   object-fit:cover;
 }
 
+.image-break-scissors img{
+  object-position:center 70%;
+}
+
 /* =========================
    HERO NAV
 ========================= */
