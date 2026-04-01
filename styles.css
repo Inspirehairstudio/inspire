@@ -105,18 +105,44 @@ iframe{
   color:var(--muted);
 }
 
-.split-layout{
-  align-items:center; /* already good */
+.split-section .split-layout{
+  display:grid;
+  grid-template-columns:420px 1fr;
+  gap:48px;
+  align-items:center;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:36px;
+  box-shadow:var(--shadow);
 }
 
 .split-image{
-  max-width:420px;
+  width:100%;
 }
 
 .split-image img{
   width:100%;
   height:auto;
-  border-radius:var(--radius);
+  display:block;
+  border-radius:18px;
+}
+
+.split-copy .section-header{
+  margin-bottom:22px;
+  max-width:none;
+}
+
+.split-copy .content-grid.two-col{
+  gap:24px;
+}
+
+.split-copy .center-cta{
+  margin-top:28px;
+}
+
+.split-copy .btn{
+  min-height:52px;
 }
 
 .content-grid{
