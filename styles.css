@@ -996,6 +996,28 @@ iframe{
   object-position:center 29%;
 }
 
+.team-name-inline{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.team-badge-mobile{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#111;
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  line-height:1;
+}
+
 .team-card{
   display:grid;
   grid-template-columns:320px 1fr;
@@ -1419,5 +1441,22 @@ iframe{
   .team-card-actions .btn{
     width:100%;
     max-width:none;
+  }
+
+  .team-card-featured .team-badge{
+    display:none;
+  }
+  
+  .team-card-featured .team-badge-mobile{
+    display:inline-flex;
+  }
+  
+  .team-name-inline{
+    gap:10px;
+  }
+  
+  .team-badge-mobile{
+    padding:5px 9px;
+    font-size:9px;
   }
 }
