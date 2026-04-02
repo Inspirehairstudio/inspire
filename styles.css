@@ -1299,11 +1299,11 @@ iframe{
   }
 
   .hero{
-    min-height:92svh;
+    min-height:100vh;
   }
 
   .hero-content{
-    padding:190px 20px 66px;
+    padding:220px 20px 40px;
   }
 
   .hero h1{
