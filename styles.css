@@ -937,6 +937,12 @@ iframe{
   color:#111;
 }
 
+  .team-services-grid-two{
+    grid-template-columns:1fr;
+  }
+
+Yep — here’s your full TEAM PAGE css block cleaned up with the hover effects already added in the right spots, so you can just replace your current team section and not worry about breaking anything.
+
 /* =========================
    TEAM PAGE
 ========================= */
@@ -975,11 +981,36 @@ iframe{
   border-radius:28px;
   padding:28px;
   box-shadow:var(--shadow);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.team-card:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.10),
+    0 0 0 1px rgba(0,0,0,0.04);
+  border-color:rgba(0,0,0,0.12);
+  background:#fff;
 }
 
 .team-card-featured{
   border-color:rgba(17,17,17,0.12);
   box-shadow:0 18px 50px rgba(0,0,0,0.10);
+}
+
+.team-card-featured:hover{
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(0,0,0,0.05);
+}
+
+.team-card-media{
+  overflow:hidden;
+  border-radius:22px;
 }
 
 .team-card-media img{
@@ -988,6 +1019,11 @@ iframe{
   object-fit:cover;
   border-radius:22px;
   min-height:360px;
+  transition:transform 0.4s ease;
+}
+
+.team-card:hover .team-card-media img{
+  transform:scale(1.04);
 }
 
 .team-card-content{
@@ -1051,6 +1087,14 @@ iframe{
   background:#fff;
   font-weight:600;
   font-size:0.93rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.team-card:hover .team-service-pill{
+  border-color:rgba(0,0,0,0.10);
 }
 
 .team-services{
@@ -1076,6 +1120,7 @@ iframe{
   content:"+";
   font-size:20px;
   line-height:1;
+  transition:transform 0.2s ease;
 }
 
 .team-services[open] summary::after{
@@ -1098,6 +1143,16 @@ iframe{
   border:1px solid var(--line);
   border-radius:18px;
   padding:16px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.team-service-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.06);
+  border-color:rgba(0,0,0,0.10);
 }
 
 .team-service-item h3{
@@ -1130,47 +1185,8 @@ iframe{
   margin-top:4px;
 }
 
-@media (max-width: 920px){
-  .team-card{
-    grid-template-columns:1fr;
-    gap:22px;
-  }
-
-  .team-card-media img{
-    min-height:320px;
-  }
-
-  .team-card-top{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .team-services-grid,
-  .team-services-grid-two{
-    grid-template-columns:1fr;
-  }
-}
-
-@media (max-width: 560px){
-  .team-card{
-    padding:18px;
-    border-radius:22px;
-  }
-
-  .team-card-media img{
-    min-height:280px;
-    border-radius:18px;
-  }
-
-  .team-service-preview{
-    gap:8px;
-  }
-
-  .team-service-pill{
-    width:100%;
-    justify-content:flex-start;
-    border-radius:14px;
-  }
+.team-card:hover .btn-solid{
+  transform:translateY(-1px);
 }
 
 /* =========================
@@ -1218,7 +1234,25 @@ iframe{
     gap:28px;
     padding:24px;
   }
-  
+
+  .team-card{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+
+  .team-card-media img{
+    min-height:320px;
+  }
+
+  .team-card-top{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .team-services-grid,
+  .team-services-grid-two{
+    grid-template-columns:1fr;
+  }
 }
 
 @media (max-width: 768px){
@@ -1263,9 +1297,8 @@ iframe{
   }
 
   .cards-grid + .center-cta{
-  margin-top:28px;
+    margin-top:28px;
   }
-
 
   .footer-inner{
     flex-direction:column;
@@ -1301,7 +1334,6 @@ iframe{
   .image-break-cta img{
     object-position:center 42%;
   }
-  
 }
 
 @media (max-width: 560px){
@@ -1326,5 +1358,37 @@ iframe{
 
   .hero-image{
     object-position:center 24%;
+  }
+
+  .team-banner{
+    height:260px;
+  }
+
+  .team-banner img{
+    object-position:center 42%;
+  }
+
+  .team-card{
+    padding:18px;
+    border-radius:22px;
+  }
+
+  .team-card-media{
+    border-radius:18px;
+  }
+
+  .team-card-media img{
+    min-height:280px;
+    border-radius:18px;
+  }
+
+  .team-service-preview{
+    gap:8px;
+  }
+
+  .team-service-pill{
+    width:100%;
+    justify-content:flex-start;
+    border-radius:14px;
   }
 }
