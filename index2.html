@@ -313,17 +313,19 @@
       </div>
     </div>
   </footer>
-<script>
-  window.addEventListener("scroll", function () {
-    const nav = document.querySelector(".nav");
-    if (!nav) return;
-
-    if (window.scrollY > 60) {
-      nav.classList.add("scrolled");
-    } else {
-      nav.classList.remove("scrolled");
-    }
-  });
-</script>
+  <script>
+    const nav = document.querySelector('.nav');
+    const logo = document.getElementById('site-logo');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        nav.classList.add('scrolled');
+        logo.src = "images/inspirehairstudioslogo.png"; // BLACK logo
+      } else {
+        nav.classList.remove('scrolled');
+        logo.src = "images/inspirehairstudioslogo2.png"; // WHITE logo
+      }
+    });
+  </script>
 </body>
 </html>
