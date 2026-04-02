@@ -1037,6 +1037,24 @@ iframe{
   .logo-dark{
     height:42px;
   }
+
+  .image-break{
+    height:220px;
+  }
+
+  .image-break img{
+    height:100%;
+    object-fit:cover;
+  }
+
+  .image-break-scissors img{
+    object-position:center 58%;
+  }
+
+  .image-break-cta img{
+    object-position:center 42%;
+  }
+  
 }
 
 @media (max-width: 560px){
