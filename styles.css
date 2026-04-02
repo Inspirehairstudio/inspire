@@ -977,7 +977,7 @@ iframe{
 
 .team-section{
   display:grid;
-  gap:20px;
+  gap:24px;
   margin-top:24px;
 }
 
@@ -1053,8 +1053,8 @@ iframe{
 .team-card-content{
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
-  gap:22px;
+  justify-content:flex-start;
+  gap:18px;
 }
 
 .team-card-top{
@@ -1088,37 +1088,12 @@ iframe{
   letter-spacing:0.08em;
   text-transform:uppercase;
   white-space:nowrap;
+  flex-shrink:0;
 }
 
 .team-bio{
   margin:0;
   max-width:820px;
-}
-
-.team-service-preview{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.team-service-pill{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 14px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:#fff;
-  font-weight:600;
-  font-size:0.93rem;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.team-card:hover .team-service-pill{
-  border-color:rgba(0,0,0,0.10);
 }
 
 .team-services{
@@ -1206,7 +1181,7 @@ iframe{
   display:flex;
   align-items:center;
   gap:14px;
-  margin-top:4px;
+  margin-top:0;
 }
 
 .team-card:hover .btn-solid{
@@ -1271,13 +1246,13 @@ iframe{
   .team-card-top{
     flex-direction:column;
     align-items:flex-start;
+    gap:12px;
   }
 
   .team-services-grid,
   .team-services-grid-two{
     grid-template-columns:1fr;
   }
-}
 
 @media (max-width: 768px){
   .nav{
@@ -1423,18 +1398,26 @@ iframe{
     height:280px;
     border-radius:18px;
   }
-  
+
   .team-card-media img{
     border-radius:18px;
   }
 
-  .team-service-preview{
-    gap:8px;
+  .team-name{
+    font-size:clamp(2.3rem, 10vw, 3.2rem);
   }
 
-  .team-service-pill{
+  .team-tagline{
+    font-size:0.98rem;
+  }
+
+  .team-badge{
+    align-self:flex-start;
+    margin-top:2px;
+  }
+
+  .team-card-actions .btn{
     width:100%;
-    justify-content:flex-start;
-    border-radius:14px;
+    max-width:none;
   }
 }
