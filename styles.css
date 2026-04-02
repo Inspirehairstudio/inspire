@@ -191,14 +191,29 @@ iframe{
    HERO NAV
 ========================= */
 .nav{
-  position:absolute;
-  inset:0 0 auto 0;
-  z-index:40;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:120;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:24px;
-  padding:26px 36px;
+  padding:18px 20px;
+  transition:
+    background .3s ease,
+    backdrop-filter .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease,
+    padding .3s ease;
+}
+
+.nav.scrolled{
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
 }
 
 .nav-left,
@@ -289,6 +304,21 @@ iframe{
   background:#111;
   color:#fff;
   transform:translateY(-2px);
+}
+
+.nav.scrolled .nav-center a{
+  color:#111;
+  text-shadow:none;
+}
+
+.nav.scrolled .social-links a{
+  background:rgba(0,0,0,0.05);
+  color:#111;
+}
+
+.nav.scrolled .social-links a:hover{
+  background:#111;
+  color:#fff;
 }
 
 /* =========================
@@ -1255,6 +1285,11 @@ iframe{
     flex-direction:column;
     align-items:flex-start;
     gap:14px;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    padding:16px 20px;
   }
 
   .nav-center{
