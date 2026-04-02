@@ -1299,11 +1299,13 @@ iframe{
   }
 
   .hero{
-    min-height:100vh;
+    min-height:auto;
+    height:auto;
   }
 
+
   .hero-content{
-    padding:220px 20px 40px;
+    padding:190px 20px 140px;
   }
 
   .hero h1{
@@ -1311,7 +1313,8 @@ iframe{
   }
 
   .hero-image{
-    object-position:center 28%;
+    transform:none;
+    object-position:center 24%;
   }
 
   .alt-section{
