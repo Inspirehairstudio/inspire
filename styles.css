@@ -949,9 +949,9 @@ iframe{
 .team-section{
   display:grid;
   gap:28px;
-  padding-top:0 !important;
-  margin-top:-1px;
+  margin-top:24px;
 }
+
 .team-banner{
   width:100%;
   height:540px;
