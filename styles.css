@@ -940,8 +940,25 @@ iframe{
 /* =========================
    TEAM PAGE
 ========================= */
+
 .team-hero{
+  padding-top:44px;
   padding-bottom:20px;
+}
+
+.team-banner{
+  width:100%;
+  height:420px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:#ddd;
+}
+
+.team-banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 42%;
 }
 
 .team-section{
