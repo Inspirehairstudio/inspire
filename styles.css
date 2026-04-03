@@ -291,14 +291,13 @@ iframe{
 
 .mobile-book{
   position:fixed;
-  left:16px;
-  right:16px;
-  bottom:16px;
-  height:56px;
-  border-radius:16px;
+  left:0;
+  right:0;
+  bottom:0;
+  height:64px;
   background:#111;
   color:#fff;
-  display:flex;
+  display:none;
   align-items:center;
   justify-content:center;
   font-size:12px;
@@ -307,11 +306,10 @@ iframe{
   text-transform:uppercase;
   text-decoration:none;
   z-index:9999;
-  box-shadow:0 6px 18px rgba(0,0,0,0.14);
-  opacity:0.96;
-  backdrop-filter:blur(6px);
+  box-shadow:0 -6px 20px rgba(0,0,0,0.18);
+
   transform:translateY(100%);
-  transition:transform .35s ease;
+  transition:transform .30s ease;
 }
 
 .mobile-book.show{
@@ -1528,7 +1526,7 @@ iframe{
 }
 
   body{
-    padding-bottom:96px;
+    padding-bottom:64px;
   }
 }
 
