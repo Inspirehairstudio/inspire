@@ -451,7 +451,7 @@ iframe{
 .contact-image-band{
   position:relative;
   width:100%;
-  height:380px;
+  height:460px;
   overflow:hidden;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
@@ -461,7 +461,7 @@ iframe{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 37%;
+  object-position:center 45%;
 }
 
 .contact-image-band-overlay{
