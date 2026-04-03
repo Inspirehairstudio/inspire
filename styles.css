@@ -950,24 +950,6 @@ iframe{
   color:var(--muted);
 }
 
-    }
-
-    const observer = new MutationObserver(() => {
-      removeElfsightBranding();
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-
-    window.addEventListener('load', () => {
-      setTimeout(removeElfsightBranding, 1500);
-    });
-  </script>
-</body>
-</html>
-Add this to styles.css
 /* =========================
    REVIEWS PAGE
 ========================= */
