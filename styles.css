@@ -461,7 +461,7 @@ iframe{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 50%;
+  object-position:center 75%;
 }
 
 .contact-image-band-overlay{
@@ -1744,7 +1744,7 @@ iframe{
   }
 
   .contact-image-band img{
-    object-position:center 52%;
+    object-position:center 70%;
   }
 
   .contact-image-band-text{
