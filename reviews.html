@@ -55,47 +55,66 @@
   </header>
 
   <section class="reviews-hero section">
-    <div class="section-header">
+    <div class="section-header reviews-hero-copy">
       <p class="section-label">Reviews</p>
       <h1 class="title">See what clients are saying about Inspire Hair Studio.</h1>
       <p class="page-intro">
-        From fresh cuts to full transformations, our clients trust Inspire Hair Studio for great service, great energy, and consistent results.
+        Real feedback from real clients who trust Inspire Hair Studio for sharp cuts, consistent service, and a studio experience that keeps them coming back.
       </p>
     </div>
   </section>
 
-  <section class="section reviews-leave-section">
-    <div class="reviews-leave-card">
-      <p class="section-label">Love your visit?</p>
-      <h2 class="title">Leave us a review on Google.</h2>
-      <p>
-        Had a great experience with our team? We’d love to hear about it. Your review helps new clients feel confident booking with Inspire Hair Studio.
-      </p>
+  <section class="reviews-image-band">
+    <img
+      src="images/reviews-hero.jpg"
+      alt="Stylist at Inspire Hair Studio in Sherman, Texas"
+    />
+    <div class="reviews-image-band-overlay"></div>
+    <div class="reviews-image-band-text">
+      <p class="section-label">Trusted locally</p>
+      <h2 class="title">A studio clients come back to — and recommend.</h2>
+    </div>
+  </section>
 
-      <div class="hero-buttons">
-        <a
-          href="YOUR_GOOGLE_REVIEW_LINK_HERE"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-solid"
-        >
-          <span>Leave a Review</span>
-        </a>
+  <section class="reviews-leave-section">
+    <div class="section">
+      <div class="reviews-leave-card">
+        <p class="section-label">Love your visit?</p>
+        <h2 class="title">Leave us a review on Google.</h2>
+        <p>
+          Had a great experience with our team? Your review helps future clients feel confident booking with Inspire Hair Studio.
+        </p>
+
+        <div class="hero-buttons">
+          <a
+            href="YOUR_GOOGLE_REVIEW_LINK_HERE"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-solid"
+          >
+            <span>Leave a Review</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section reviews-widget-section">
     <div class="reviews-widget-shell">
+      <div class="reviews-widget-header">
+        <p class="section-label">Client feedback</p>
+        <h2 class="title">What people are saying.</h2>
+      </div>
+
       <div class="elfsight-app-eeb5052d-5822-4805-8b8a-770dc67bf8bd" data-elfsight-app-lazy></div>
     </div>
   </section>
 
-  <section class="section contact-bottom-cta">
+  <section class="section reviews-bottom-cta">
     <p class="section-label">Ready for your appointment?</p>
     <h2 class="title">Book with a barber or stylist you can trust.</h2>
     <p>
-      Browse our team, choose the service you want, and book directly with the professional that fits your style.
+      Browse our team, choose your service, and book directly with the professional that fits your style.
     </p>
 
     <div class="hero-buttons">
@@ -130,26 +149,24 @@
         }
       }, { passive: true });
     }
-  </script>
-  <script>
-  function removeElfsightBranding() {
-    const containers = document.querySelectorAll('.es-load-more-button-container');
-    containers.forEach(el => el.remove());
-  }
-  
-  const observer = new MutationObserver(() => {
-    removeElfsightBranding();
-  });
-  
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-  
-  // also run once after load
-  window.addEventListener('load', () => {
-    setTimeout(removeElfsightBranding, 1500);
-  });
+
+    function removeElfsightBranding() {
+      document.querySelectorAll('.es-branding-container, .es-footer, .eapps-widget-toolbar, .es-load-more-button-container')
+        .forEach(el => el.remove());
+    }
+
+    const observer = new MutationObserver(() => {
+      removeElfsightBranding();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    window.addEventListener('load', () => {
+      setTimeout(removeElfsightBranding, 1500);
+    });
   </script>
 </body>
 </html>
