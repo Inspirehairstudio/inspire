@@ -1988,11 +1988,11 @@ Add this to styles.css
   }
 
   .contact-image-band{
-    height:220px;
+    height:280px;
   }
 
   .contact-image-band img{
-    object-position:center 58%;
+    object-position:center 40%;
   }
 
   .contact-image-band-text{
