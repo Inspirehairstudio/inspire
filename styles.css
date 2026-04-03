@@ -475,7 +475,7 @@ iframe{
   position:absolute;
   left:max(28px, calc((100vw - var(--container)) / 2 + 28px));
   right:max(28px, calc((100vw - var(--container)) / 2 + 28px));
-  bottom:28px;
+  bottom:24px;
   z-index:2;
   color:#fff;
 }
@@ -1605,7 +1605,7 @@ iframe{
   }
 
   .contact-image-band{
-    height:240px;
+    height:360px;
   }
 
   .contact-image-band-text h2{
