@@ -967,8 +967,39 @@ iframe{
   max-width:860px;
 }
 
+.reviews-leave-section{
+  padding-top:8px;
+  padding-bottom:24px;
+}
+
+.reviews-leave-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:var(--shadow);
+  text-align:center;
+  max-width:860px;
+  margin:0 auto;
+}
+
+.reviews-leave-card h2{
+  margin-bottom:12px;
+}
+
+.reviews-leave-card p{
+  max-width:640px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.reviews-leave-card .hero-buttons{
+  justify-content:center;
+  margin-top:10px;
+}
+
 .reviews-widget-section{
-  padding-top:24px;
+  padding-top:12px;
   padding-bottom:32px;
 }
 
@@ -1745,6 +1776,11 @@ iframe{
     padding-bottom:20px;
   }
 
+  .reviews-leave-card{
+    padding:24px;
+    border-radius:22px;
+  }
+
   .reviews-widget-shell{
     padding:14px;
     border-radius:22px;
@@ -1945,5 +1981,9 @@ iframe{
 
   .contact-info-value{
     font-size:0.98rem;
+
+  .reviews-leave-card{
+    padding:20px;
+    border-radius:20px;
   }
 }
