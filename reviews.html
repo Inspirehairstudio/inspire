@@ -110,5 +110,26 @@
       }, { passive: true });
     }
   </script>
+
+  <script>
+      function removeElfsightBranding() {
+        const containers = document.querySelectorAll('.es-load-more-button-container');
+        containers.forEach(el => el.remove());
+      }
+      
+      const observer = new MutationObserver(() => {
+        removeElfsightBranding();
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+      
+      // also run once after load
+      window.addEventListener('load', () => {
+        setTimeout(removeElfsightBranding, 1500);
+      });
+    </script>
 </body>
 </html>
