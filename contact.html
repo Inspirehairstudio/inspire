@@ -9,7 +9,7 @@
     content="Contact Inspire Hair Studio in Sherman, TX. Ask about services, booking, hours, or studio information and we’ll get back to you as soon as possible."
   />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -40,10 +40,10 @@
 
       <div class="nav-right">
         <div class="social-links-dark">
-          <a href="https://www.instagram.com/inspirehairstudio__/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/inspirehairstudio__/" target="_blank" rel="noopener noreferrer" aria-label="Visit Inspire Hair Studio on Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://www.facebook.com/inspirehairstudios" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/inspirehairstudios" target="_blank" rel="noopener noreferrer" aria-label="Visit Inspire Hair Studio on Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
         </div>
@@ -71,6 +71,7 @@
     <div class="contact-image-band-overlay"></div>
     <div class="contact-image-band-text">
       <p class="section-label">Sherman, Texas</p>
+      <h2 class="title">Visit the studio, reach out, or book online.</h2>
     </div>
   </section>
 
@@ -81,7 +82,7 @@
           <p class="section-label">Send a Message</p>
           <h2 class="title">We’ll point you in the right direction.</h2>
           <p>
-            Use the form below for general questions, service inquiries, or studio information.
+            Use the form below for general questions, service inquiries, appointment questions, or studio information.
           </p>
         </div>
 
@@ -90,24 +91,51 @@
           action="https://formspree.io/f/YOUR_FORMSPREE_ID"
           method="POST"
         >
+          <input type="hidden" name="_subject" value="New contact form submission from Inspire Hair Studio" />
+
           <div class="form-field">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" required placeholder="Your name" />
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              placeholder="Your name"
+            />
           </div>
 
           <div class="form-field">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="Your email" />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="Your email"
+            />
           </div>
 
           <div class="form-field form-field-full">
             <label for="phone">Phone <span>(optional)</span></label>
-            <input id="phone" name="phone" type="text" placeholder="Your phone number" />
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              placeholder="Your phone number"
+            />
           </div>
 
           <div class="form-field form-field-full">
             <label for="subject">Subject</label>
-            <input id="subject" name="subject" type="text" placeholder="What can we help with?" />
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              placeholder="What can we help with?"
+            />
           </div>
 
           <div class="form-field form-field-full">
@@ -134,7 +162,7 @@
           <p class="section-label">Studio Info</p>
           <h2 class="title">Visit, call, or book online.</h2>
           <p>
-            Looking to schedule an appointment instead of sending a message? Head to our team page to choose your barber or stylist directly.
+            Want to schedule an appointment instead of sending a message? Visit our team page to choose your barber or stylist directly.
           </p>
         </div>
 
