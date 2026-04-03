@@ -1039,24 +1039,22 @@ Add this to styles.css
 /* Leave Review Section */
 
 .reviews-leave-section{
-  background:#111;
-  border-top:1px solid rgba(255,255,255,0.06);
-  border-bottom:1px solid rgba(255,255,255,0.06);
+  background:transparent;
 }
-
+      
 .reviews-leave-section .section{
-  padding-top:64px;
-  padding-bottom:64px;
+  padding-top:36px;
+  padding-bottom:20px;
 }
 
 .reviews-leave-card{
   background:#fff;
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:30px;
-  padding:38px;
-  max-width:860px;
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:34px;
+  max-width:760px;
   margin:0 auto;
-  box-shadow:0 30px 80px rgba(0,0,0,0.28);
+  box-shadow:0 18px 40px rgba(0,0,0,0.08);
   text-align:center;
 }
 
@@ -1923,7 +1921,7 @@ Add this to styles.css
   }
 
   .reviews-image-band img{
-    object-position:center 28%;
+    object-position:center 24%;
   }
 
   .reviews-image-band-text{
