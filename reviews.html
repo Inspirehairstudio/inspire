@@ -64,6 +64,27 @@
     </div>
   </section>
 
+  <section class="section reviews-leave-section">
+    <div class="reviews-leave-card">
+      <p class="section-label">Love your visit?</p>
+      <h2 class="title">Leave us a review on Google.</h2>
+      <p>
+        Had a great experience with our team? We’d love to hear about it. Your review helps new clients feel confident booking with Inspire Hair Studio.
+      </p>
+
+      <div class="hero-buttons">
+        <a
+          href="YOUR_GOOGLE_REVIEW_LINK_HERE"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-solid"
+        >
+          <span>Leave a Review</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="section reviews-widget-section">
     <div class="reviews-widget-shell">
       <div class="elfsight-app-eeb5052d-5822-4805-8b8a-770dc67bf8bd" data-elfsight-app-lazy></div>
@@ -110,26 +131,25 @@
       }, { passive: true });
     }
   </script>
-
   <script>
-      function removeElfsightBranding() {
-        const containers = document.querySelectorAll('.es-load-more-button-container');
-        containers.forEach(el => el.remove());
-      }
-      
-      const observer = new MutationObserver(() => {
-        removeElfsightBranding();
-      });
-      
-      observer.observe(document.body, {
-        childList: true,
-        subtree: true
-      });
-      
-      // also run once after load
-      window.addEventListener('load', () => {
-        setTimeout(removeElfsightBranding, 1500);
-      });
-    </script>
+  function removeElfsightBranding() {
+    const containers = document.querySelectorAll('.es-load-more-button-container');
+    containers.forEach(el => el.remove());
+  }
+  
+  const observer = new MutationObserver(() => {
+    removeElfsightBranding();
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+  
+  // also run once after load
+  window.addEventListener('load', () => {
+    setTimeout(removeElfsightBranding, 1500);
+  });
+  </script>
 </body>
 </html>
