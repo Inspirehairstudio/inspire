@@ -457,5 +457,18 @@
     </div>
   </footer>
   <a href="ourteam.html" class="mobile-book">Book Now</a>
+  <script>
+    const mobileBook = document.querySelector('.mobile-book');
+  
+    if (mobileBook) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+          mobileBook.classList.add('show');
+        } else {
+          mobileBook.classList.remove('show');
+        }
+      }, { passive: true });
+    }
+  </script>
 </body>
 </html>
