@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews | Inspire Hair Studio</title>
+  <meta
+    name="description"
+    content="Read reviews for Inspire Hair Studio in Sherman, TX. See what clients are saying about our barbers, stylists, service, and studio experience."
+  />
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=League+Spartan:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://elfsightcdn.com/platform.js" async></script>
+</head>
+<body class="reviews-page">
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index2.html" class="logo-link">
+        <img
+          src="images/inspirehairstudioslogo.png"
+          alt="Inspire Hair Studio logo"
+          class="logo logo-dark"
+        />
+      </a>
+
+      <nav class="site-nav">
+        <a href="ourteam.html">Our Team</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html" class="active">Reviews</a>
+        <a href="index2.html#location">Location</a>
+        <a href="contactus.html">Contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="social-links-dark">
+          <a href="https://www.instagram.com/inspirehairstudio__/" target="_blank" rel="noopener noreferrer" aria-label="Visit Inspire Hair Studio on Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/inspirehairstudios" target="_blank" rel="noopener noreferrer" aria-label="Visit Inspire Hair Studio on Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </div>
+
+        <a href="ourteam.html" class="nav-cta-dark">Book Now</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="reviews-hero section">
+    <div class="section-header">
+      <p class="section-label">Reviews</p>
+      <h1 class="title">See what clients are saying about Inspire Hair Studio.</h1>
+      <p class="page-intro">
+        From fresh cuts to full transformations, our clients trust Inspire Hair Studio for great service, great energy, and consistent results.
+      </p>
+    </div>
+  </section>
+
+  <section class="section reviews-widget-section">
+    <div class="reviews-widget-shell">
+      <div class="elfsight-app-eeb5052d-5822-4805-8b8a-770dc67bf8bd" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
+  <section class="section contact-bottom-cta">
+    <p class="section-label">Ready for your appointment?</p>
+    <h2 class="title">Book with a barber or stylist you can trust.</h2>
+    <p>
+      Browse our team, choose the service you want, and book directly with the professional that fits your style.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="ourteam.html" class="btn btn-solid"><span>Book Now</span></a>
+      <a href="contactus.html" class="btn btn-dark"><span>Contact Us</span></a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2026 Inspire Hair Studio. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="ourteam.html">Our Team</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contactus.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="ourteam.html" class="mobile-book">Book Now</a>
+
+  <script>
+    const mobileBook = document.querySelector('.mobile-book');
+
+    if (mobileBook) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+          mobileBook.classList.add('show');
+        } else {
+          mobileBook.classList.remove('show');
+        }
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>
