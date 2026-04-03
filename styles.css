@@ -434,7 +434,7 @@ iframe{
 
 .contact-hero{
   padding-top:56px;
-  padding-bottom:28px;
+  padding-bottom:32px;
 }
 
 .contact-hero-copy{
@@ -451,7 +451,7 @@ iframe{
 .contact-image-band{
   position:relative;
   width:100%;
-  height:320px;
+  height:340px;
   overflow:hidden;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
@@ -461,13 +461,13 @@ iframe{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 55%;
+  object-position:center 50%;
 }
 
 .contact-image-band-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(0,0,0,0.34));
+  background:linear-gradient(to bottom, rgba(0,0,0,0.12), rgba(0,0,0,0.45));
   pointer-events:none;
 }
 
@@ -475,23 +475,30 @@ iframe{
   position:absolute;
   left:max(28px, calc((100vw - var(--container)) / 2 + 28px));
   right:max(28px, calc((100vw - var(--container)) / 2 + 28px));
-  bottom:18px;
+  bottom:28px;
   z-index:2;
+  color:#fff;
 }
 
 .contact-image-band-text .section-label{
-  color:#fff;
+  color:rgba(255,255,255,0.85);
+  margin:0 0 6px;
+}
+
+.contact-image-band-text h2{
   margin:0;
+  font-size:clamp(1.6rem, 2.5vw, 2.2rem);
+  color:#fff;
 }
 
 .contact-main-section{
-  padding-top:48px;
+  padding-top:56px;
 }
 
 .contact-shell{
   display:grid;
   grid-template-columns:minmax(0, 1.3fr) minmax(320px, 0.8fr);
-  gap:28px;
+  gap:32px;
   align-items:start;
 }
 
@@ -509,7 +516,7 @@ iframe{
 }
 
 .contact-card-header h2{
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .contact-card-header p:last-child{
@@ -548,12 +555,12 @@ iframe{
 .form-field textarea{
   width:100%;
   border:1px solid var(--line);
-  border-radius:18px;
+  border-radius:16px;
   background:#fff;
   color:#111;
-  padding:15px 16px;
+  padding:14px 15px;
   font:inherit;
-  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+  transition:border-color .2s ease, box-shadow .2s ease;
 }
 
 .form-field textarea{
@@ -564,12 +571,12 @@ iframe{
 .form-field input:focus,
 .form-field textarea:focus{
   outline:none;
-  border-color:rgba(0,0,0,0.18);
-  box-shadow:0 0 0 4px rgba(0,0,0,0.04);
+  border-color:#2890df;
+  box-shadow:0 0 0 3px rgba(40,144,223,0.10);
 }
 
 .form-actions{
-  padding-top:6px;
+  padding-top:10px;
 }
 
 .contact-info-stack{
@@ -613,7 +620,7 @@ iframe{
 
 .contact-bottom-cta{
   text-align:center;
-  padding-top:24px;
+  padding-top:28px;
   padding-bottom:80px;
 }
 
@@ -1011,7 +1018,6 @@ iframe{
   border-radius:var(--radius);
   padding:30px;
   box-shadow:var(--shadow);
-
   height:100%;
   display:flex;
   flex-direction:column;
@@ -1121,7 +1127,6 @@ iframe{
   border:1px solid var(--line);
   box-shadow:var(--shadow);
   background:#ddd;
-
   height:100%;
 }
 
@@ -1611,13 +1616,25 @@ iframe{
 
   .contact-shell{
     grid-template-columns:1fr;
+    gap:24px;
   }
 
   .contact-form-card,
   .contact-info-card{
     padding:26px;
   }
-  
+
+  .contact-image-band{
+    height:240px;
+  }
+
+  .contact-image-band-text h2{
+    font-size:1.4rem;
+  }
+
+  .contact-form-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 @media (max-width: 768px){
@@ -1667,7 +1684,6 @@ iframe{
     min-height:auto;
     height:auto;
   }
-
 
   .hero-content{
     padding:190px 20px 140px;
@@ -1731,7 +1747,7 @@ iframe{
   }
 
   .mobile-book{
-  display:flex;
+    display:flex;
   }
 
   body{
@@ -1740,19 +1756,33 @@ iframe{
 
   .contact-hero{
     padding-top:42px;
-    padding-bottom:20px;
+    padding-bottom:24px;
   }
 
   .contact-image-band{
-    height:240px;
+    height:220px;
   }
 
   .contact-image-band img{
     object-position:center 52%;
   }
 
-  .contact-form-grid{
-    grid-template-columns:1fr;
+  .contact-image-band-text{
+    bottom:22px;
+  }
+
+  .contact-image-band-text h2{
+    font-size:1.3rem;
+  }
+
+  .contact-form-card,
+  .contact-info-card{
+    padding:24px;
+    border-radius:22px;
+  }
+
+  .contact-card-header h2{
+    font-size:1.5rem;
   }
 
   .contact-info-actions{
@@ -1769,7 +1799,6 @@ iframe{
   .contact-bottom-cta{
     padding-bottom:96px;
   }
-  
 }
 
 @media (max-width: 560px){
@@ -1853,18 +1882,43 @@ iframe{
     font-size:9px;
   }
   
+  .contact-hero{
+    padding-top:40px;
+    padding-bottom:24px;
+  }
+
+  .page-intro{
+    font-size:1rem;
+  }
+
   .contact-form-card,
   .contact-info-card{
     padding:20px;
-    border-radius:22px;
+    border-radius:20px;
   }
 
   .contact-image-band{
-    height:210px;
+    height:200px;
   }
 
   .contact-image-band-text{
     left:20px;
     right:20px;
+    bottom:18px;
+  }
+
+  .contact-image-band-text h2{
+    font-size:1.2rem;
+    line-height:1.2;
+  }
+
+  .form-field input,
+  .form-field textarea{
+    padding:13px 14px;
+    font-size:0.95rem;
+  }
+
+  .contact-info-value{
+    font-size:0.98rem;
   }
 }
