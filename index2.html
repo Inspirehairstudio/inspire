@@ -317,32 +317,29 @@
       </div>
     </div>
   </footer>
-<script>
-  const nav = document.querySelector('.nav');
-  const logo = document.getElementById('site-logo');
-  const mobileBook = document.querySelector('.mobile-book');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      nav.classList.add('scrolled');
-      logo.src = "images/inspirehairstudioslogo.png";
-
-      // 👇 show sticky button after scroll
-      if (mobileBook) {
-        mobileBook.classList.add('show');
-      }
-
-    } else {
-      nav.classList.remove('scrolled');
-      logo.src = "images/inspirehairstudioslogo2.png";
-
-      // 👇 hide at top
-      if (mobileBook) {
-        mobileBook.classList.remove('show');
-      }
-    }
-  });
-</script>
   <a href="ourteam.html" class="mobile-book">Book Now</a>
+  <script>
+    const nav = document.querySelector('.nav');
+    const logo = document.getElementById('site-logo');
+    const mobileBook = document.querySelector('.mobile-book');
+  
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        nav.classList.add('scrolled');
+        logo.src = "images/inspirehairstudioslogo.png";
+  
+        if (mobileBook) {
+          mobileBook.classList.add('show');
+        }
+      } else {
+        nav.classList.remove('scrolled');
+        logo.src = "images/inspirehairstudioslogo2.png";
+  
+        if (mobileBook) {
+          mobileBook.classList.remove('show');
+        }
+      }
+    }, { passive: true });
+  </script>
 </body>
 </html>
