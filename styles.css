@@ -951,6 +951,41 @@ iframe{
 }
 
 /* =========================
+   REVIEWS PAGE
+========================= */
+
+.reviews-page{
+  background:var(--bg-soft);
+}
+
+.reviews-hero{
+  padding-top:72px;
+  padding-bottom:24px;
+}
+
+.reviews-hero .section-header{
+  max-width:860px;
+}
+
+.reviews-widget-section{
+  padding-top:24px;
+  padding-bottom:32px;
+}
+
+.reviews-widget-shell{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.06);
+  overflow:hidden;
+}
+
+.reviews-widget-shell .elfsight-app-eeb5052d-5822-4805-8b8a-770dc67bf8bd{
+  min-height:240px;
+}
+
+/* =========================
    CTA BAND
 ========================= */
 .cta-band{
@@ -1705,6 +1740,16 @@ iframe{
     border-radius:22px;
   }
 
+  .reviews-hero{
+    padding-top:48px;
+    padding-bottom:20px;
+  }
+
+  .reviews-widget-shell{
+    padding:14px;
+    border-radius:22px;
+  }
+  
   .logo-dark{
     height:42px;
   }
