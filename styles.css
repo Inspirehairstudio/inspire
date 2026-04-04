@@ -1791,7 +1791,7 @@ iframe{
   }
 
   .reviews-image-band{
-    height:240px;
+    height:280px;
   }
 
   .reviews-image-band-text h2{
@@ -1894,11 +1894,11 @@ iframe{
   }
 
   .reviews-image-band{
-    height:200px;
+    height:220px;
   }
 
   .reviews-image-band img{
-    object-position:center 20%;
+    object-position:center 16%;
   }
 
   .reviews-image-band-text{
@@ -2126,7 +2126,11 @@ iframe{
   }
 
   .reviews-image-band{
-    height:180px;
+    height:190px;
+  }
+
+  .reviews-image-band img{
+    object-position:center 14%;
   }
 
   .reviews-image-band-text{
