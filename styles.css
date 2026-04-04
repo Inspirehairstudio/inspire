@@ -619,9 +619,10 @@ iframe{
 }
 
 .contact-bottom-cta{
+  background:linear-gradient(to bottom, #1c1c1e, #111);
+  color:#fff;
   text-align:center;
-  padding-top:28px;
-  padding-bottom:80px;
+  padding:80px 28px;
 }
 
 .contact-bottom-cta h2{
