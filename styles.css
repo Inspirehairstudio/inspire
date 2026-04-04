@@ -619,21 +619,31 @@ iframe{
 }
 
 .contact-bottom-cta{
+  max-width:none;
+  margin:0;
   background:linear-gradient(to bottom, #2a2a2a, #1a1a1a);
   color:#fff;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.contact-bottom-cta .section{
   text-align:center;
   padding:80px 28px;
-  border-top:1px solid rgba(255,255,255,0.05);
 }
 
 .contact-bottom-cta h2{
   margin-bottom:12px;
+  color:#fff;
 }
 
 .contact-bottom-cta p{
   max-width:640px;
   margin:0 auto 28px;
   color:var(--muted);
+}
+
+.contact-bottom-cta .section-label{
+  color:rgba(255,255,255,0.62);
 }
 
 /* inner pages */
@@ -2113,6 +2123,7 @@ iframe{
 
   .contact-info-value{
     font-size:0.98rem;
+  }
 
   .reviews-image-band{
     height:180px;
