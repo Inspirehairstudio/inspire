@@ -103,9 +103,8 @@
 
     <section class="section gallery-widget-section">
       <div class="gallery-widget-shell">
-        <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
         <script src="https://elfsightcdn.com/platform.js" async></script>
-        <div class="elfsight-app-7b93feba-12bb-42af-88b8-a8685f3de0eb" data-elfsight-app-lazy></div>
+        <div class="elfsight-app-d3de88c2-9ee7-4158-9dac-105406d0a53d" data-elfsight-app-lazy></div>
       </div>
     </section>
 
@@ -136,38 +135,6 @@
     </div>
   </footer>
   
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      function removeElfsightBranding() {
-        const selectors = [
-          'a[href*="elfsight.com"]',
-          '[class*="es-widget-branding"]',
-          '[class*="eapps-widget-toolbar"]',
-          '[class*="eapps-instagram-feed-posts-slider-credits"]',
-          '[class*="eapps-link"]'
-        ];
-
-        selectors.forEach(selector => {
-          document.querySelectorAll(selector).forEach(el => {
-            el.style.display = "none";
-            el.style.visibility = "hidden";
-            el.style.opacity = "0";
-            el.style.height = "0";
-            el.style.overflow = "hidden";
-          });
-        });
-      }
-
-      removeElfsightBranding();
-
-      const observer = new MutationObserver(() => {
-        removeElfsightBranding();
-      });
-
-      observer.observe(document.body, { childList: true, subtree: true });
-      setInterval(removeElfsightBranding, 1000);
-    });
-  </script>
   <a href="ourteam.html" class="mobile-book">Book Now</a>
   <script>
     const mobileBook = document.querySelector('.mobile-book');
