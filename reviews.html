@@ -144,8 +144,8 @@
         <div class="reviews-divider"></div>
 
         <!-- Reviews widget -->
-        <div class="elfsight-app-eeb5052d-5822-4805-8b8a-770dc67bf8bd"></div>
-
+        <div class="elfsight-app-9a8796a2-dbaf-47f8-a702-6b1736bb4064" data-elfsight-app-lazy></div>
+        
       </div>
 
     </div>
@@ -197,23 +197,6 @@
         }
       });
     }
-
-    function removeElfsightBranding() {
-      document.querySelectorAll(
-        '.es-branding-container, .es-footer, .eapps-widget-toolbar, .es-load-more-button-container'
-      ).forEach(el => el.remove());
-    }
-
-    const observer = new MutationObserver(removeElfsightBranding);
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-
-    window.addEventListener('load', () => {
-      setTimeout(removeElfsightBranding, 1500);
-    });
   </script>
 
 </body>
