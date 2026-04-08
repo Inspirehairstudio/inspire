@@ -2006,6 +2006,16 @@ iframe{
   .contact-bottom-cta{
     padding-bottom:96px;
   }
+
+  .site-nav{
+    flex-wrap:wrap;
+    gap:10px 14px;
+  }
+  
+  .site-nav a{
+    font-size:12px;
+  }
+  
 }
 
 @media (max-width: 560px){
@@ -2166,6 +2176,14 @@ iframe{
   }
 
   .nav-center a{
+    font-size:11px;
+  }
+
+  .site-nav{
+    gap:8px 12px;
+  }
+  
+  .site-nav a{
     font-size:11px;
   }
   
