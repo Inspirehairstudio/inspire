@@ -1836,7 +1836,11 @@ iframe{
 
   .nav-center{
     flex-wrap:wrap;
-    gap:14px 18px;
+    gap:10px 14px;
+  }
+  
+  .nav-center a{
+    font-size:12px;
   }
 
   .logo{
@@ -2156,6 +2160,15 @@ iframe{
   .reviews-bottom-cta{
     padding-bottom:96px;
   }
+
+  .nav-center{
+  gap:8px 12px;
+  }
+
+  .nav-center a{
+    font-size:11px;
+  }
+  
 }
 
 /* =========================
