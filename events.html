@@ -163,5 +163,43 @@
       }, { passive: true });
     }
   </script>
+
+  <script>
+    function removeElfsightBranding() {
+      const hideBadges = () => {
+        const badges = document.querySelectorAll('a[href*="elfsight.com"]');
+  
+        badges.forEach(el => {
+          el.style.display = 'none';
+        });
+      };
+  
+      // Run immediately
+      hideBadges();
+  
+      // Run after delays (for async load)
+      setTimeout(hideBadges, 1000);
+      setTimeout(hideBadges, 2000);
+      setTimeout(hideBadges, 4000);
+  
+      // Keep checking (just in case)
+      const interval = setInterval(hideBadges, 2000);
+  
+      // Stop after 15 seconds (performance)
+      setTimeout(() => clearInterval(interval), 15000);
+  
+      // Mutation observer (for dynamic injections)
+      const observer = new MutationObserver(() => {
+        hideBadges();
+      });
+  
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
+  
+    removeElfsightBranding();
+  </script>
 </body>
 </html>
