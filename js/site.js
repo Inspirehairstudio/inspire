@@ -59,18 +59,18 @@
   /* ---------- header ---------- */
   var page = document.body.getAttribute("data-page") || "";
   var NAV = [
-    ["ourteam.html", "Our team", "team"],
-    ["index.html#styles", "Services", "services"],
-    ["gallery.html", "Gallery", "gallery"],
-    ["reviews.html", "Reviews", "reviews"],
-    ["events.html", "Events", "events"],
-    ["contact.html", "Contact", "contact"]
+    ["ourteam2.html", "Our team", "team"],
+    ["index2.html#styles2", "Services", "services"],
+    ["gallery2.html", "Gallery", "gallery"],
+    ["reviews2.html", "Reviews", "reviews"],
+    ["events2.html", "Events", "events"],
+    ["contact2.html", "Contact", "contact"]
   ];
   var headerEl = document.getElementById("site-header");
   if (headerEl) {
     headerEl.outerHTML =
       '<header class="site-header"><div class="wrap">' +
-      '<a class="brand" href="index.html" aria-label="Inspire Hair Studio home"><img src="images/inspirehairstudioslogo.png" alt="Inspire Hair Studio" width="92" height="38"></a>' +
+      '<a class="brand" href="index2.html" aria-label="Inspire Hair Studio home"><img src="images/inspirehairstudioslogo.png" alt="Inspire Hair Studio" width="92" height="38"></a>' +
       '<nav class="header-nav" aria-label="Main">' +
       NAV.map(function (n) {
         return '<a href="' + n[0] + '"' + (page === n[2] ? ' aria-current="page"' : "") + ">" + n[1] + "</a>";
@@ -91,7 +91,7 @@
     '<button type="button" class="icon-btn" aria-label="Close menu" data-menu-close>' + icon("close") + "</button></div>" +
     "<nav>" +
     NAV.map(function (n) { return '<a href="' + n[0] + '" data-menu-close>' + n[1] + "</a>"; }).join("") +
-    '<a href="index.html#visit" data-menu-close>Visit</a>' +
+    '<a href="index2.html#visit" data-menu-close>Visit</a>' +
     "</nav>" +
     '<div class="menu-bottom">' +
     '<button type="button" class="btn btn-white btn-block shine shine-dark" data-menu-close data-book-open>Book an appointment</button>' +
@@ -159,9 +159,9 @@
       '<footer class="site-footer"><div class="wrap">' +
       '<div><img src="images/inspirehairstudioslogo2.png" alt="Inspire Hair Studio" width="97" height="40"></div>' +
       '<nav class="footer-links" aria-label="Footer">' +
-      '<a href="ourteam.html">Our team</a><a href="reviews.html">Reviews</a>' +
-      '<a href="gallery.html">Gallery</a><a href="events.html">Events</a>' +
-      '<a href="contact.html">Contact</a><a href="#book" data-book-open>Book online</a>' +
+      '<a href="ourteam2.html">Our team</a><a href="reviews2.html">Reviews</a>' +
+      '<a href="gallery2.html">Gallery</a><a href="events2.html">Events</a>' +
+      '<a href="contact2.html">Contact</a><a href="#book" data-book-open>Book online</a>' +
       "</nav>" +
       '<div class="stack" style="gap:16px">' +
       '<div class="social-circles">' + socialLinks() + "</div>" +
@@ -173,7 +173,7 @@
   var car = document.getElementById("team-carousel");
   if (car) {
     car.innerHTML = TEAM.map(function (m) {
-      return '<a class="mini" href="barber.html?id=' + esc(m.id) + '">' +
+      return '<a class="mini" href="barber2.html?id=' + esc(m.id) + '">' +
         '<img src="' + esc(m.thumb) + '" alt="' + esc(m.name) + ', ' + esc(m.role.toLowerCase()) + ' at Inspire Hair Studio" loading="lazy">' +
         "<span><strong>" + esc(m.name) + "</strong><br><span>" + esc(m.short) + "</span></span></a>";
     }).join("");
@@ -199,17 +199,17 @@
           ? '<button type="button" class="svc-toggle" data-toggle="' + esc(m.id) + '" aria-expanded="' + isOpen + '">' + (isOpen ? "Show less −" : "All " + m.services.length + " services +") + "</button>"
           : "";
         return '<article class="member">' +
-          '<a class="member-photo" href="barber.html?id=' + esc(m.id) + '" aria-label="View ' + esc(m.first) + '’s profile">' +
+          '<a class="member-photo" href="barber2.html?id=' + esc(m.id) + '" aria-label="View ' + esc(m.first) + '’s profile">' +
           '<img src="' + esc(m.photo) + '" alt="' + esc(m.name) + ' at Inspire Hair Studio" loading="lazy">' +
           (m.owner ? '<span class="badge tl">Owner</span>' : "") +
           '<span class="badge br">View profile ' + icon("arrow", "icon-sm") + "</span></a>" +
           '<div class="stack" style="gap:6px"><div class="eyebrow muted">' + esc(m.role) + "</div>" +
-          '<h2><a href="barber.html?id=' + esc(m.id) + '">' + esc(m.name) + "</a></h2>" +
+          '<h2><a href="barber2.html?id=' + esc(m.id) + '">' + esc(m.name) + "</a></h2>" +
           '<p class="member-bio">' + esc(m.bio) + "</p></div>" +
           '<div class="tags">' + m.tags.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + "</div>" +
           '<div class="svc-list">' + svcRows(shown) + more + "</div>" +
           '<div class="btn-group two">' +
-          '<a class="btn btn-outline" href="barber.html?id=' + esc(m.id) + '">View profile</a>' +
+          '<a class="btn btn-outline" href="barber2.html?id=' + esc(m.id) + '">View profile</a>' +
           '<a class="btn btn-primary" href="' + esc(m.bookUrl) + '" target="_blank" rel="noopener" data-book-id="' + esc(m.id) + '">Book ' + esc(m.first) + "</a></div>" +
           '<p class="books-on">Books on ' + esc(m.app) + "</p></article>";
       }).join("");
@@ -266,7 +266,7 @@
       '<div class="svc-list" style="border-bottom:1px solid var(--line)">' + svcRows(m.services) + "</div></section>" +
       '<section class="stack" style="padding-top:32px;gap:12px"><div class="eyebrow muted">Also at Inspire</div><div class="others">' +
       others.map(function (o) {
-        return '<a class="other" href="barber.html?id=' + esc(o.id) + '"><img src="' + esc(o.thumb) + '" alt="" loading="lazy"><span><strong>' + esc(o.name) + "</strong><span>" + esc(o.role) + "</span></span></a>";
+        return '<a class="other" href="barber2.html?id=' + esc(o.id) + '"><img src="' + esc(o.thumb) + '" alt="" loading="lazy"><span><strong>' + esc(o.name) + "</strong><span>" + esc(o.role) + "</span></span></a>";
       }).join("") + "</div></section>" +
       "</div></div>" +
       '<div class="book-bar"><div class="wrap">' +
