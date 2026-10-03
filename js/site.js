@@ -70,7 +70,7 @@
   if (headerEl) {
     headerEl.outerHTML =
       '<header class="site-header"><div class="wrap">' +
-      '<a class="brand" href="index2.html" aria-label="Inspire Hair Studio home"><img src="images/inspirehairstudioslogo.png" alt="Inspire Hair Studio" width="92" height="38"></a>' +
+      '<a class="brand" href="index2.html" aria-label="Inspire Hair Studio home"><img src="images2/inspirehairstudioslogo.png" alt="Inspire Hair Studio" width="92" height="38"></a>' +
       '<nav class="header-nav" aria-label="Main">' +
       NAV.map(function (n) {
         return '<a href="' + n[0] + '"' + (page === n[2] ? ' aria-current="page"' : "") + ">" + n[1] + "</a>";
@@ -87,7 +87,7 @@
   var shell = document.createElement("div");
   shell.innerHTML =
     '<div class="menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menu">' +
-    '<div class="menu-top"><img src="images/inspirehairstudioslogo2.png" alt="Inspire Hair Studio" width="92" height="38">' +
+    '<div class="menu-top"><img src="images2/inspirehairstudioslogo2.png" alt="Inspire Hair Studio" width="92" height="38">' +
     '<button type="button" class="icon-btn" aria-label="Close menu" data-menu-close>' + icon("close") + "</button></div>" +
     "<nav>" +
     NAV.map(function (n) { return '<a href="' + n[0] + '" data-menu-close>' + n[1] + "</a>"; }).join("") +
@@ -157,7 +157,7 @@
   if (footerEl) {
     footerEl.outerHTML =
       '<footer class="site-footer"><div class="wrap">' +
-      '<div><img src="images/inspirehairstudioslogo2.png" alt="Inspire Hair Studio" width="97" height="40"></div>' +
+      '<div><img src="images2/inspirehairstudioslogo2.png" alt="Inspire Hair Studio" width="97" height="40"></div>' +
       '<nav class="footer-links" aria-label="Footer">' +
       '<a href="ourteam2.html">Our team</a><a href="reviews2.html">Reviews</a>' +
       '<a href="gallery2.html">Gallery</a><a href="events2.html">Events</a>' +
