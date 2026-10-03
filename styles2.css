@@ -241,7 +241,7 @@ body.locked{overflow:hidden}
 .footer-small a{color:var(--green-soft)}
 
 /* ---------- Page intro (inner pages) ---------- */
-.page-intro{padding-top:32px;display:flex;flex-direction:column;gap:14px}
+.page-intro{margin-top:36px;display:flex;flex-direction:column;gap:14px}
 .page-intro h1{font-size:40px;line-height:1;letter-spacing:-.035em}
 
 /* ---------- Team page ---------- */
@@ -316,7 +316,7 @@ body.locked{overflow:hidden}
 .field input:focus,.field textarea:focus{outline:2px solid var(--green);outline-offset:1px;background:#fff}
 .stack{display:flex;flex-direction:column;gap:18px}
 .center{text-align:center;align-items:center}
-.cta-end{padding:56px 0 0;display:flex;flex-direction:column;gap:12px}
+.cta-end{margin-top:56px;display:flex;flex-direction:column;gap:12px}
 .cta-end h2{font-size:30px}
 .contact-aside{margin-top:16px}
 
@@ -428,3 +428,38 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   .social-circles a:hover{background-color:#fff;border-color:#fff;color:var(--green-deep);transform:translateY(-2px)}
 }
 @media (min-width:820px){.header-social{gap:4px}.header-social a{width:38px;height:38px}}
+
+/* small phones: 3 social icons + Book now fit without side-scroll */
+@media (max-width:400px){.header-social a{width:28px}.header-book{padding:0 12px}.site-header .wrap{gap:8px}}
+@media (max-width:345px){.header-social{display:none}}
+
+/* ---------- Contact page ---------- */
+.photo-band{position:relative;margin:32px 0 0;height:260px;overflow:hidden;background:#222}
+.photo-band img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,14,.05) 30%,rgba(10,18,14,.7) 100%)}
+.photo-band figcaption{position:absolute;left:0;right:0;bottom:22px;z-index:1;color:#fff;display:flex;flex-direction:column;gap:6px}
+.photo-band figcaption span{font-size:14px;font-weight:600;color:#cfe0d6}
+.photo-band figcaption strong{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.05;letter-spacing:-.02em;max-width:22ch}
+.contact-section{background:var(--soft);padding:32px 0 56px}
+.contact-grid{display:grid;gap:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:22px}
+.panel-head{display:flex;flex-direction:column;gap:8px}
+.panel-head h2{font-size:28px;line-height:1}
+.panel-head p{font-size:15px;color:var(--muted);line-height:1.5}
+.form-row{display:grid;gap:16px}
+.field input::placeholder,.field textarea::placeholder{color:#a3a19b}
+.form-submit{justify-self:start;padding:0 32px}
+.break{word-break:break-all}
+.contact-section + .cta-band{margin-top:0}
+@media (min-width:820px){
+  .page-intro{margin-top:64px}
+  .cta-end{margin-top:96px}
+  .photo-band{margin-top:48px;height:420px}
+  .photo-band figcaption{bottom:36px}
+  .photo-band figcaption strong{font-size:40px}
+  .contact-section{padding:64px 0 96px}
+  .contact-grid{grid-template-columns:1.25fr 1fr;gap:24px;align-items:start}
+  .panel{padding:36px}
+  .panel-head h2{font-size:38px}
+  .form-row{grid-template-columns:1fr 1fr}
+}
