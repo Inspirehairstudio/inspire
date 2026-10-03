@@ -70,7 +70,7 @@
   if (headerEl) {
     headerEl.outerHTML =
       '<header class="site-header"><div class="wrap">' +
-      '<a class="brand" href="index2.html" aria-label="Inspire Hair Studio home"><img src="images2/inspirehairstudioslogo.png" alt="Inspire Hair Studio" width="92" height="38"></a>' +
+      '<a class="brand" href="index2.html" aria-label="Inspire Hair Studio home"><img src="images/inspirehairstudioslogo.png" alt="Inspire Hair Studio" width="92" height="38"></a>' +
       '<nav class="header-nav" aria-label="Main">' +
       NAV.map(function (n) {
         return '<a href="' + n[0] + '"' + (page === n[2] ? ' aria-current="page"' : "") + ">" + n[1] + "</a>";
