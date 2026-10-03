@@ -231,7 +231,7 @@ body.locked{overflow:hidden}
 .section + .bg-soft,.section + .bg-dark{margin-top:56px}
 
 /* ---------- Footer ---------- */
-.site-footer{margin-top:0;padding:40px 0 48px;background:var(--green-deep);color:#fff}
+.site-footer{margin-top:72px;padding:40px 0 48px;background:var(--green-deep);color:#fff}
 .site-footer .wrap{display:flex;flex-direction:column;gap:24px}
 .site-footer img{height:40px;width:auto}
 .logo-white{filter:invert(1)}
@@ -462,4 +462,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
   .panel{padding:36px}
   .panel-head h2{font-size:38px}
   .form-row{grid-template-columns:1fr 1fr}
+}
+
+/* footer spacing: room above it, except when a page ends on a full-width coloured band */
+main:has(> .cta-band:last-child) + .site-footer,main:has(> .bg-soft:last-child) + .site-footer,main:has(> .bg-dark:last-child) + .site-footer{margin-top:0}
+@media (min-width:820px){
+  .site-footer{margin-top:112px}
+  main:has(> .cta-band:last-child) + .site-footer,main:has(> .bg-soft:last-child) + .site-footer,main:has(> .bg-dark:last-child) + .site-footer{margin-top:0}
+  /* end-of-page buttons sit side by side instead of stretching full width */
+  .cta-end{align-items:flex-start}
+  .cta-end .btn-group{flex-direction:row}
 }
