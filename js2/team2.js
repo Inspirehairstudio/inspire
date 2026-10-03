@@ -18,7 +18,7 @@ window.INSPIRE = {
     socials: {
       instagram: "https://www.instagram.com/inspirehairstudio__/",
       facebook: "https://www.facebook.com/inspirehairstudios",
-      tiktok: "" // add the TikTok profile URL here and the icon appears everywhere
+      tiktok: "https://www.tiktok.com/@inspirehairstudio_"
     }
   },
 
