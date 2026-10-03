@@ -48,8 +48,14 @@
   /* ---------- live data from the admin portal (Supabase) ---------- */
   var CFG = window.INSPIRE_SUPABASE || {};
   var LIVE = !!(CFG.url && CFG.anonKey);
+  // Works with either key type: legacy anon (eyJ...) or new publishable (sb_publishable_...)
+  function sbHeaders() {
+    var h = { apikey: CFG.anonKey };
+    if (/^eyJ/.test(CFG.anonKey)) h.Authorization = "Bearer " + CFG.anonKey;
+    return h;
+  }
   function sbGet(path) {
-    return fetch(CFG.url + "/rest/v1/" + path, { headers: { apikey: CFG.anonKey, Authorization: "Bearer " + CFG.anonKey } })
+    return fetch(CFG.url + "/rest/v1/" + path, { headers: sbHeaders() })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
   }
   function thumbOf(url) { return /\/?images2\/[^/]+\.jpg$/.test(url || "") && url.indexOf("-sm.jpg") < 0 ? url.replace(".jpg", "-sm.jpg") : url; }
@@ -80,7 +86,7 @@
     try {
       fetch(CFG.url + "/rest/v1/book_taps", {
         method: "POST", keepalive: true,
-        headers: { apikey: CFG.anonKey, Authorization: "Bearer " + CFG.anonKey, "Content-Type": "application/json", Prefer: "return=minimal" },
+        headers: Object.assign(sbHeaders(), { "Content-Type": "application/json", Prefer: "return=minimal" }),
         body: JSON.stringify({ barber_id: m.dbId, source: page || "site" })
       });
     } catch (e) {}
