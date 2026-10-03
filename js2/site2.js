@@ -150,6 +150,12 @@
     else if (menu.classList.contains("open")) closeMenu();
   });
   if (location.hash === "#book") openSheet();
+  /* Directions: iPhones/iPads open Apple Maps navigation, everyone else Google Maps */
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)) {
+    document.querySelectorAll("[data-directions]").forEach(function (a) {
+      a.href = "https://maps.apple.com/?daddr=201+Sunset+Blvd,+Sherman,+TX+75092&dirflg=d";
+    });
+  }
   var fm = document.getElementById("full-menu");
   if (fm && window.matchMedia("(min-width: 820px)").matches) fm.open = true;
 
