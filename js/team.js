@@ -30,8 +30,8 @@ window.INSPIRE = {
       role: "Barber",
       kind: "barber",
       owner: true,
-      photo: "images/web/inspirehairstudiosfernando.jpg",
-      thumb: "images/web/inspirehairstudiosfernando-sm.jpg",
+      photo: "images2/web/inspirehairstudiosfernando.jpg",
+      thumb: "images2/web/inspirehairstudiosfernando-sm.jpg",
       short: "Owner · Precision cuts",
       bio: "Fernando leads Inspire Hair Studio with a focus on consistency, sharp finishing, and a polished client experience from start to finish.",
       tags: ["Precision cuts", "Beard work", "Modern barbering"],
@@ -42,8 +42,8 @@ window.INSPIRE = {
         { name: "Haircut & Beard", price: "$100", time: "1 hr 30 min" }
       ],
       photos: [
-        "images/web/inspirehairstudiofernandoholdingclippers.jpg",
-        "images/web/inspirehairstudiofernandogettinghaircut.jpg"
+        "images2/web/inspirehairstudiofernandoholdingclippers.jpg",
+        "images2/web/inspirehairstudiofernandogettinghaircut.jpg"
       ]
     },
     {
@@ -52,8 +52,8 @@ window.INSPIRE = {
       first: "Marv",
       role: "Barber",
       kind: "barber",
-      photo: "images/web/inspirehairstudiosmarv.jpg",
-      thumb: "images/web/inspirehairstudiosmarv-sm.jpg",
+      photo: "images2/web/inspirehairstudiosmarv.jpg",
+      thumb: "images2/web/inspirehairstudiosmarv-sm.jpg",
       short: "Barber · Blends & beards",
       bio: "Marv brings a clean, detail-driven approach focused on sharp cuts, beard work, and a polished finish.",
       tags: ["Blends", "Beard work", "Barbershop detail"],
@@ -65,7 +65,7 @@ window.INSPIRE = {
         { name: "Kid’s Haircut", price: "$30", time: "30 min" },
         { name: "Full Service", price: "$120", time: "1 hr" }
       ],
-      photos: ["images/web/inspirehairstudiomarvusingclippers.jpg"]
+      photos: ["images2/web/inspirehairstudiomarvusingclippers.jpg"]
     },
     {
       id: "danielle",
@@ -73,8 +73,8 @@ window.INSPIRE = {
       first: "Danielle",
       role: "Stylist",
       kind: "stylist",
-      photo: "images/web/inspirehairstudiosdanielle.jpg",
-      thumb: "images/web/inspirehairstudiosdanielle-sm.jpg",
+      photo: "images2/web/inspirehairstudiosdanielle.jpg",
+      thumb: "images2/web/inspirehairstudiosdanielle-sm.jpg",
       short: "Stylist · Color & cuts",
       bio: "Danielle offers a broad salon menu with haircuts, styling, color services, highlights, and specialty appointments.",
       tags: ["Color", "Highlights", "Cuts & styling"],
@@ -90,7 +90,7 @@ window.INSPIRE = {
         { name: "Partial Highlight", price: "$129+", note: "Focused highlight service" },
         { name: "Full Highlight", price: "$174+", note: "Full foil service" }
       ],
-      photos: ["images/web/inspirehairstudiodanielleholdingscissors.jpg"]
+      photos: ["images2/web/inspirehairstudiodanielleholdingscissors.jpg"]
     }
   ]
 };
