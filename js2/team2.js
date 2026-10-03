@@ -1,4 +1,16 @@
 /* =========================================================
+   Admin portal connection (Supabase).
+   Paste your project URL and anon/public key here. Leave them
+   empty and the site uses the team list below instead.
+   The anon key is safe to publish; the database rules decide
+   what it can do.
+   ========================================================= */
+window.INSPIRE_SUPABASE = {
+  url: "https://ispnvicobdmklzanawko.supabase.co",
+  anonKey: "sb_publishable_-RSC07xryH2ZMsMYxVVOrA_afWZhfDj"
+};
+
+/* =========================================================
    Shop + team data.
    Edit here today. Later the admin portal (Supabase) will
    supply this same shape, and this file becomes the fallback.
