@@ -13,7 +13,7 @@ window.INSPIRE = {
     cityLine: "Sherman, TX 75092",
     hours: "Mon – Sat, 9 AM – 7 PM",
     hoursNote: "Closed Sunday",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=201+Sunset+Blvd+Sherman+TX+75092",
+    mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=201+Sunset+Blvd+Sherman+TX+75092&travelmode=driving&dir_action=navigate",
     reviewUrl: "https://g.page/r/CdBo2ewRmGkQEAE/review",
     socials: {
       instagram: "https://www.instagram.com/inspirehairstudio__/",
