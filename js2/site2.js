@@ -45,6 +45,20 @@
   }
   window.InspireUI = { esc: esc, icon: icon };
 
+  /* ---------- test pages (index2.html, ourteam2.html ...) ----------
+     On a "2" page, links to the site's own pages stay on the "2" versions,
+     so testing never jumps to the old live pages. Real pages are unaffected. */
+  var STAGE = /2\.html$/i.test(location.pathname);
+  var PAGES = /^(index|ourteam|barber|gallery|reviews|events|contact)\.html/i;
+  if (STAGE) {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a) return;
+      var href = a.getAttribute("href");
+      if (PAGES.test(href)) a.setAttribute("href", href.replace(/\.html/i, "2.html"));
+    }, true);
+  }
+
   /* ---------- live data from the admin portal (Supabase) ---------- */
   var CFG = window.INSPIRE_SUPABASE || {};
   var LIVE = !!(CFG.url && CFG.anonKey);
