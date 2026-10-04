@@ -402,13 +402,17 @@
 
   function addBarberForm() {
     return '<form class="stack" data-form="add" style="padding:14px;border-radius:10px;background:var(--soft)">' +
+      '<div class="field">Photo<div style="display:flex;align-items:center;gap:14px">' +
+      '<span class="avatar" data-pick-preview style="width:76px;height:76px;background:#fff center 20%/cover no-repeat;border:1px dashed #c9c4b8"></span>' +
+      '<label class="btn btn-outline btn-sm" style="position:relative;background:#fff">Choose photo<input type="file" name="photo" accept="image/*" data-pick style="position:absolute;inset:0;opacity:0;cursor:pointer"></label></div>' +
+      '<span class="hint">A clear portrait, face toward the top. Used on Our team and their profile page.</span></div>' +
       '<div class="row2"><label class="field">Full name on site<input class="input" name="name" required placeholder="Alex R."></label>' +
       '<label class="field">First name<input class="input" name="first_name" required placeholder="Alex"></label></div>' +
       '<div class="row2"><label class="field">Role<select class="input" name="role"><option>Barber</option><option>Stylist</option></select></label>' +
       '<label class="field">Booking app<select class="input" name="app"><option>Squire</option><option>Booksy</option><option>Vagaro</option><option>theCut</option><option>Square</option><option>Other</option></select></label></div>' +
       '<label class="field">Booking link<input class="input" type="url" name="book_url" placeholder="https://"></label>' +
-      '<label class="field">Their email<input class="input" type="email" name="email" required placeholder="alex@email.com"><span class="hint">They’ll create a login with this email at inspirehairstudios.com/admin</span></label>' +
-      '<p class="hint">New barbers start hidden so you can add their photo and prices first.</p>' +
+      '<label class="field">Their email<input class="input" type="email" name="email" required placeholder="alex@inspirehairstudios.com"><span class="hint">They’ll create a login with this email at inspirehairstudios.com/admin</span></label>' +
+      '<p class="hint">New barbers start hidden so you can add their prices and bio first.</p>' +
       '<button class="btn btn-primary btn-sm" type="submit" style="align-self:flex-start">Add to team</button></form>';
   }
 
@@ -462,6 +466,11 @@
           short_line: fd.get("role"), visible: false, sort_order: (S.barbers.length + 1) * 10
         };
         var b = await api.addBarber(row);
+        var pic = fd.get("photo");
+        if (pic && pic.size) {
+          var up = await api.uploadFile(b.id, await resizeImage(pic, 1200), "profile");
+          await api.updateBarber(b.id, { photo_url: up.url });
+        }
         await refreshBarbers();
         S.addOpen = false; S.currentId = b.id; S.tab = "profile"; await loadCurrent();
       }, "Added. Finish their profile, then turn on “Show on website”.");
@@ -487,6 +496,11 @@
       S.currentId = t.value; await run(loadCurrent); render(); return;
     }
     if (t.tagName === "SELECT" && t.dataset.f) { S.draft[t.dataset.f] = t.value; markDirty(); return; }
+    if (t.dataset.pick !== undefined) {
+      var pv = app.querySelector("[data-pick-preview]"), file = t.files && t.files[0];
+      if (pv && file) { pv.style.backgroundImage = "url(" + URL.createObjectURL(file) + ")"; pv.style.borderStyle = "solid"; }
+      return;
+    }
     if (t.dataset.upload) {
       var files = Array.prototype.slice.call(t.files || []); if (!files.length) return;
       var b = current();
