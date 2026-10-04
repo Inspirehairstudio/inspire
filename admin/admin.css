@@ -67,7 +67,7 @@ a{color:var(--green)}
 .quick span{font-size:13px;color:var(--muted)}
 
 /* forms */
-label.field{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+label.field,div.field{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
 .input,textarea.input,select.input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:8px;background:#fbfbf9;padding:11px 12px;font-size:16px;color:var(--ink);font-weight:400}
 textarea.input{min-height:100px;resize:vertical}
 .input:focus{outline:2px solid var(--green);outline-offset:0;background:#fff}
