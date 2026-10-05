@@ -593,3 +593,10 @@ main:has(> .cta-band:last-child) + .site-footer,main:has(> .bg-soft:last-child) 
 @media (min-width:820px){
   .map-wrap{margin-top:0;height:100%;min-height:420px}
 }
+
+/* footer: cross + verse (home page). The cross quietly links to the team login. */
+.footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.footer-verse{display:flex;flex-direction:column;align-items:center;gap:4px;width:97px}
+.footer-verse a{display:grid;place-items:center;width:32px;height:36px;color:var(--green-soft);text-decoration:none;transition:color .2s ease}
+.footer-verse span{font-size:12px;letter-spacing:.06em;color:var(--green-soft)}
+@media (hover:hover){.footer-verse a:hover{color:#fff}}
