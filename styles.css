@@ -595,8 +595,13 @@ main:has(> .cta-band:last-child) + .site-footer,main:has(> .bg-soft:last-child) 
 }
 
 /* footer: cross + verse (home page). The cross quietly links to the team login. */
-.footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
-.footer-verse{display:flex;flex-direction:column;align-items:center;gap:4px;width:97px}
+/* phones: logo on the left, cross + verse lined up over the right-hand column (Reviews) */
+.footer-brand{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;align-items:center}
+.footer-verse{display:flex;flex-direction:column;align-items:center;gap:2px;width:max-content;justify-self:start}
+@media (min-width:820px){
+  .footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+  .footer-verse{gap:4px;width:97px}
+}
 .footer-verse a{display:grid;place-items:center;width:32px;height:36px;color:var(--green-soft);text-decoration:none;transition:color .2s ease}
 .footer-verse span{font-size:12px;letter-spacing:.06em;color:var(--green-soft)}
 @media (hover:hover){.footer-verse a:hover{color:#fff}}
