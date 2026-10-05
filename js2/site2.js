@@ -266,10 +266,11 @@
     if (!list) return;
     list.innerHTML = TEAM.filter(function (m) { return filter === "all" || m.kind === filter; }).map(function (m) {
         var isOpen = !!open[m.id];
-        var shown = isOpen ? m.services : m.services.slice(0, 3);
-        var more = m.services.length > 3
-          ? '<button type="button" class="svc-toggle" data-toggle="' + esc(m.id) + '" aria-expanded="' + isOpen + '">' + (isOpen ? "Show less −" : "All " + m.services.length + " services +") + "</button>"
-          : "";
+        var n = m.services.length;
+        var svc = n ? '<div class="svc-drop' + (isOpen ? " is-open" : "") + '">' +
+          '<button type="button" class="svc-toggle" data-toggle="' + esc(m.id) + '" aria-expanded="' + isOpen + '">' +
+          '<span>Services &amp; prices <span class="svc-count">' + n + "</span></span><span class=\"svc-sign\" aria-hidden=\"true\"></span></button>" +
+          (isOpen ? '<div class="svc-list">' + svcRows(m.services) + "</div>" : "") + "</div>" : "";
         return '<article class="member">' +
           '<a class="member-photo" href="barber.html?id=' + esc(m.id) + '" aria-label="View ' + esc(m.first) + '’s profile">' +
           '<img src="' + esc(m.photo) + '" alt="' + esc(m.name) + ' at Inspire Hair Studio" loading="lazy">' +
@@ -279,11 +280,11 @@
           '<h2><a href="barber.html?id=' + esc(m.id) + '">' + esc(m.name) + "</a></h2>" +
           '<p class="member-bio">' + esc(m.bio) + "</p></div>" +
           '<div class="tags">' + m.tags.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + "</div>" +
-          '<div class="svc-list">' + svcRows(shown) + more + "</div>" +
+          '<div class="member-foot">' + svc +
           '<div class="btn-group two">' +
           '<a class="btn btn-outline" href="barber.html?id=' + esc(m.id) + '">View profile</a>' +
           '<a class="btn btn-primary" href="' + esc(m.bookUrl) + '" target="_blank" rel="noopener" data-book-id="' + esc(m.id) + '">Book ' + esc(m.first) + "</a></div>" +
-          '<p class="books-on">Books on ' + esc(m.app) + "</p></article>";
+          '<p class="books-on">Books on ' + esc(m.app) + "</p></div></article>";
       }).join("");
   }
   if (list) {
