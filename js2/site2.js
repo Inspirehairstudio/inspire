@@ -264,7 +264,10 @@
   var open = {};
   function renderTeam() {
     if (!list) return;
-    list.innerHTML = TEAM.filter(function (m) { return filter === "all" || m.kind === filter; }).map(function (m) {
+    var shownTeam = TEAM.filter(function (m) { return filter === "all" || m.kind === filter; });
+    // 4 people (or 8) sit 4 across; any other count uses rows of 3 (5 = 3 + 2)
+    list.setAttribute("data-cols", shownTeam.length % 4 === 0 ? "4" : "3");
+    list.innerHTML = shownTeam.map(function (m) {
         var isOpen = !!open[m.id];
         var n = m.services.length;
         var svc = n ? '<div class="svc-drop' + (isOpen ? " is-open" : "") + '">' +
