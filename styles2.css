@@ -390,6 +390,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--green);outline-offs
     .member .tags{align-content:flex-start;align-items:flex-start}
   }
   .member-photo img{height:440px}
+  .team-list[data-cols="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}
   .callout{flex-direction:row;align-items:center;justify-content:space-between}
   .profile-wrap{display:grid;grid-template-columns:minmax(0,440px) 1fr;gap:48px;align-items:start}
   .profile-wrap .profile-hero{position:sticky;top:calc(var(--header-h) + 20px);border-radius:6px;overflow:hidden}
@@ -513,3 +514,14 @@ main:has(> .cta-band:last-child) + .site-footer,main:has(> .bg-soft:last-child) 
 /* live data from the admin portal */
 .site-banner{background:var(--green);color:#fff;text-align:center;font-size:14px;font-weight:600;padding:9px 16px;line-height:1.35}
 .badge-status{display:inline-flex;align-items:center;gap:6px}
+
+/* Team: 4 across on wide screens when there are 4 (or 8) people */
+@media (min-width:1100px){
+  .team-list[data-cols="4"]{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:24px}
+  .team-list[data-cols="4"] .member-photo img{height:auto;aspect-ratio:4/5}
+  .team-list[data-cols="4"] .member h2{font-size:28px}
+  .team-list[data-cols="4"] .member-bio{font-size:15px}
+  .team-list[data-cols="4"] .btn-group.two{grid-template-columns:1fr}
+  .team-list[data-cols="4"] .svc-toggle{font-size:14px}
+}
+.member .btn-group .btn{white-space:nowrap;padding-left:10px;padding-right:10px}
