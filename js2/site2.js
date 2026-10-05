@@ -244,6 +244,7 @@
   var car = document.getElementById("team-carousel");
   function renderCarousel() {
     if (!car) return;
+    car.setAttribute("data-cols", TEAM.length % 4 === 0 ? "4" : "3");
     car.innerHTML = TEAM.map(function (m) {
       return '<a class="mini" href="barber.html?id=' + esc(m.id) + '">' +
         '<img src="' + esc(m.thumb) + '" alt="' + esc(m.name) + ', ' + esc(m.role.toLowerCase()) + ' at Inspire Hair Studio" loading="lazy">' +
