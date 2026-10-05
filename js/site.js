@@ -214,10 +214,15 @@
 
   /* ---------- footer ---------- */
   var footerEl = document.getElementById("site-footer");
+  var isHome = /(^|\/)(index\.html)?$/.test(location.pathname);
   if (footerEl) {
     footerEl.outerHTML =
       '<footer class="site-footer"><div class="wrap">' +
-      '<div><img src="images/inspirehairstudioslogo.png" class="logo-white" alt="Inspire Hair Studio" width="97" height="40"></div>' +
+      '<div class="footer-brand"><img src="images/inspirehairstudioslogo.png" class="logo-white" alt="Inspire Hair Studio" width="97" height="40">' +
+      (isHome ? '<div class="footer-verse"><a href="/admin/" rel="nofollow" aria-label="Team">' +
+        '<svg viewBox="0 0 20 28" width="16" height="22" aria-hidden="true"><path d="M10 2v24M3.5 9h13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>' +
+        "<span>Prov. 27:17</span></div>" : "") +
+      "</div>" +
       '<nav class="footer-links" aria-label="Footer">' +
       '<a href="ourteam.html">Our team</a><a href="reviews.html">Reviews</a>' +
       '<a href="gallery.html">Gallery</a><a href="events.html">Events</a>' +
