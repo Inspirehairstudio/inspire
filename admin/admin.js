@@ -3,7 +3,7 @@
    Barbers edit their own profile, prices, status and photos.
    The owner also manages the team, the site banner and hours.
    Runs in demo mode (fake data, nothing saved) until Supabase
-   keys are filled in at the top of js2/team2.js.
+   keys are filled in at the top of js/team.js.
    ========================================================= */
 (function () {
   "use strict";
@@ -65,8 +65,8 @@
       img.src = URL.createObjectURL(file);
     });
   }
-  function siteUrl(p) { // photos stored as /images2/... show from the site root
-    return p || "";
+  function siteUrl(p) { // older photo paths said /images2/; those files now live in /images/
+    return (p || "").replace(/(^|\/)images2\//, "$1images/");
   }
 
   /* ---------------- data layer: Supabase ---------------- */
@@ -257,12 +257,12 @@
         (m === "signin" ? '<button class="linkish" data-act="mode" data-mode="signup">First time? Create your login</button><button class="linkish" data-act="mode" data-mode="forgot">Forgot password?</button>' : "") +
         (m === "signup" || m === "forgot" ? '<button class="linkish" data-act="mode" data-mode="signin">Back to login</button>' : "");
     }
-    return '<div class="login"><div class="login-card"><img class="logo" src="/images2/inspirehairstudioslogo.png" alt="Inspire Hair Studio">' +
+    return '<div class="login"><div class="login-card"><img class="logo" src="/images/inspirehairstudioslogo.png" alt="Inspire Hair Studio">' +
       "<h1>" + title + "</h1>" + body + "</div></div>";
   }
 
   function noTeamView() {
-    return '<div class="login"><div class="login-card"><img class="logo" src="/images2/inspirehairstudioslogo.png" alt="Inspire Hair Studio">' +
+    return '<div class="login"><div class="login-card"><img class="logo" src="/images/inspirehairstudioslogo.png" alt="Inspire Hair Studio">' +
       "<h1>Almost there</h1><p class=\"sub\">You're logged in as <strong>" + esc(S.email) + "</strong>, but that email isn't on the team list yet. Ask Fernando to add it in the Shop tab, then log in again.</p>" +
       '<button class="btn btn-outline btn-block" data-act="signout">Log out</button></div></div>';
   }
@@ -367,7 +367,19 @@
         '<div class="card-head"><span>Show on website</span><button class="switch" role="switch" aria-checked="' + !!d.visible + '" data-act="toggle-f" data-f="visible" aria-label="Show on website"><span></span></button></div>' +
         (d.id !== S.myId ? '<button class="btn btn-danger btn-sm" data-act="remove-barber" style="align-self:flex-start">Remove from team</button>' : "") +
         "</section>" : "") +
+      passwordCard() +
       "</div>";
+  }
+
+  // Change the password of whoever is logged in (not the barber being viewed)
+  function passwordCard() {
+    return '<form class="card" data-form="password" autocomplete="on"><div><h2>Your password</h2>' +
+      '<p class="sub">Logged in as <strong>' + esc(S.email || "") + '</strong>. This changes your own login only.</p></div>' +
+      '<input type="email" name="username" value="' + esc(S.email || "") + '" autocomplete="username" hidden>' +
+      '<div class="row2"><label class="field">New password<input class="input" type="password" name="pw1" minlength="6" autocomplete="new-password" required></label>' +
+      '<label class="field">Type it again<input class="input" type="password" name="pw2" minlength="6" autocomplete="new-password" required></label></div>' +
+      '<span class="hint">At least 6 characters.</span>' +
+      '<button class="btn btn-outline btn-sm" type="submit" style="align-self:flex-start">Update password</button></form>';
   }
 
   function shopView() {
@@ -454,6 +466,13 @@
         S.authErr = /Invalid login/i.test(err.message) ? "That email and password don’t match." : err.message;
       }
       S.busy = false; render();
+    }
+    if (f.dataset.form === "password") {
+      var p1 = fd.get("pw1") || "", p2 = fd.get("pw2") || "";
+      if (p1.length < 6) { toast("Use at least 6 characters", true); return; }
+      if (p1 !== p2) { toast("Those passwords don\u2019t match", true); return; }
+      await run(async function () { await api.setPassword(p1); f.reset(); }, "Password updated");
+      return;
     }
     if (f.dataset.form === "add") {
       await run(async function () {
